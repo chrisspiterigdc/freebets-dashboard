@@ -1,0 +1,16 @@
+{
+  "name": "freebets-promo-check",
+  "version": "1.0.0",
+  "description": "Daily promotions scraper for GDC Group Partner Dashboard",
+  "main": "promo-check.js",
+  "scripts": {
+    "check": "node promo-check.js",
+    "check:verbose": "node promo-check.js --verbose"
+  },
+  "dependencies": {
+    "puppeteer": "^22.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
