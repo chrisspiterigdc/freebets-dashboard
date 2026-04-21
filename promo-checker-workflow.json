@@ -63,15 +63,8 @@
           ]
         },
         "sendBody": true,
-        "contentType": "json",
-        "bodyParameters": {
-          "parameters": [
-            { "name": "message", "value": "={{ $json.message }}" },
-            { "name": "content", "value": "={{ $json.content }}" },
-            { "name": "sha", "value": "={{ $json.sha }}" },
-            { "name": "branch", "value": "main" }
-          ]
-        },
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ message: $json.message, content: $json.content, sha: $json.sha, branch: 'main' }) }}",
         "options": {}
       },
       "id": "node-push",
