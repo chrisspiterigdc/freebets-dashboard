@@ -35,7 +35,7 @@
       "position": [420, 300],
       "credentials": {
         "httpHeaderAuth": {
-          "name": "GitHub Token"
+          "name": "GitHubToken"
         }
       }
     },
@@ -81,7 +81,7 @@
       "position": [860, 300],
       "credentials": {
         "httpHeaderAuth": {
-          "name": "GitHub Token"
+          "name": "GitHubToken"
         }
       }
     }
