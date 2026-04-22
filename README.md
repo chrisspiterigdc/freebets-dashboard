@@ -1,4 +1,4 @@
-# FreeBets.com SEO Content Dashboard — Daily Update Routine
+**# FreeBets.com SEO Content Dashboard — Daily Update Routine
 
 Repo: `freebets-dashboard` → deployed on Vercel (auto-redeploys on every commit to `main`).
 Live: https://freebets-seo-content-dash.vercel.app
@@ -239,9 +239,13 @@ Commit directly to `main`. Vercel will auto-redeploy within ~30 seconds of the c
 
 ---
 
-## STEP 7 — Post status to Slack
+## STEP 7 — Send status DM to Chris on Slack
 
-Post a short summary to Slack channel `C0AVBC6256C` (same channel as EPL brief for now — change if preferred):
+Send a short summary as a direct message to Chris, using Slack DM conversation ID `D04E1KBMEBX`. Do NOT post to any public or shared channel — this is a private admin status update.
+
+If sending to `D04E1KBMEBX` fails (invalid ID, permissions error, etc.), fall back to searching Slack users for "Chris Spiteri" and sending the DM to the matching user ID. If that also fails, post the summary to Slack channel `C0AVBC6256C` as a last resort and flag the Slack delivery failure in that message.
+
+Message format:
 
 ```
 *Dashboard update — [DD Month YYYY]*
@@ -264,9 +268,9 @@ If any step had warnings or scrape failures, flag them:
 
 ## Error handling rules
 
-- If GDCG MCP fails, do not fabricate data. Keep the previous day's `seo.json` and `keywords.json` and post a Slack alert.
+- If GDCG MCP fails, do not fabricate data. Keep the previous day's `seo.json` and `keywords.json` and send a Slack DM alert to `D04E1KBMEBX`.
 - If Ahrefs MCP fails, keep previous Ahrefs values in `seo.json` and flag in `warnings`.
-- If all scrapes for promos fail, keep previous `promos.json` and post a Slack alert.
+- If all scrapes for promos fail, keep previous `promos.json` and send a Slack DM alert to `D04E1KBMEBX`.
 - Never commit empty or malformed JSON. Validate every file parses before committing.
 - Never edit `index.html`. The dashboard markup is stable.
 
@@ -283,4 +287,4 @@ If any step had warnings or scrape failures, flag them:
 | Brand promo lists | Direct fetch + WebSearch fallback | `data/promos.json` |
 | Daily archive | Copy of above | `snapshots/YYYY-MM-DD/` |
 | Deploy trigger | Commit to `main` | Vercel auto-redeploys |
-| Status notification | Slack channel C0AVBC6256C | Post summary |
+| Status notification | Slack DM `D04E1KBMEBX` | Send summary |**
