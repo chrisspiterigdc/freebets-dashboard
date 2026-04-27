@@ -1,11 +1,11 @@
-**# FreeBets.com SEO Content Dashboard — Daily Update Routine
+# FreeBets.com SEO Content Dashboard — Daily Update Routine
 
 Repo: `freebets-dashboard` → deployed on Vercel (auto-redeploys on every commit to `main`).
 Live: https://freebets-seo-content-dash.vercel.app
 
-You are running the daily update routine for the FreeBets.com SEO Content Dashboard. Your job is to pull fresh data from GSC, GA4, Ahrefs, and brand promo pages, and commit updated JSON data files to the repo. Vercel handles redeployment automatically.
+You are running the daily update routine for the FreeBets.com SEO Content Dashboard. Your job is to pull fresh data from GSC, GA4, and Ahrefs, and commit updated JSON data files to the repo. Vercel handles redeployment automatically.
 
-**Never edit `index.html`. Only edit files inside `data/` and `snapshots/`.**
+**Never edit `index.html`. Only edit `data/seo.json`, `data/keywords.json`, and the matching snapshot files. Do NOT touch `data/promos.json` — it is managed independently by a separate process.**
 
 ---
 
@@ -13,11 +13,11 @@ You are running the daily update routine for the FreeBets.com SEO Content Dashbo
 
 The dashboard is a single static HTML file that loads three JSON files at page load:
 
-- `data/seo.json` — KPIs, daily sessions, channels, top queries, top pages
-- `data/keywords.json` — Top 50 mobile keywords per tracked page
-- `data/promos.json` — 28 priority brand promo lists with change flags
+- `data/seo.json` — KPIs, daily sessions, channels, top queries, top pages **(this routine updates)**
+- `data/keywords.json` — Top 50 mobile keywords per tracked page **(this routine updates)**
+- `data/promos.json` — Brand promotions list **(managed separately, do not modify)**
 
-Every daily run also writes dated snapshots to `snapshots/YYYY-MM-DD/` for rollback and history.
+Every daily run also writes dated snapshots to `snapshots/YYYY-MM-DD/` for `seo.json` and `keywords.json` only.
 
 ---
 
@@ -153,116 +153,49 @@ If a page returns zero keywords (as `new-casino` currently does), write `keyword
 
 ---
 
-## STEP 4 — Update `data/promos.json`
-
-The 28 priority brands are already defined in the existing `data/promos.json`. Read the existing file first to get the current brand list and their current promo arrays.
-
-### For each brand:
-
-1. **Fetch** the brand's promo URL (column `url` in the existing file)
-2. **Extract** the current list of promo titles from the page. Try direct fetch first; if the page returns 403, captcha, or appears blocked, fall back to WebSearch with the query `[brand name] promotions site:[domain]` and extract promo titles from snippets.
-3. **Compare** to the previous day's promo list stored in the existing `promos.json`
-4. **Determine change flag:**
-   - If the set of promos is identical → `changed: false`
-   - If promos added or removed → `changed: true`
-5. **Build the new promo array:**
-   - Promos present in both old and new → `{"text": "…", "status": "unchanged"}` (or just the string form — the dashboard accepts both)
-   - Promos only in new → `{"text": "…", "status": "new"}`
-   - Promos only in old → `{"text": "…", "status": "removed"}` (keep for 1 day of visibility, drop the next day)
-6. **Update `lastChecked`** to today in DD/MM/YYYY format
-
-### If a brand page cannot be scraped:
-
-Keep the previous day's data unchanged. Set `lastChecked` to yesterday's value. Add the brand name to a top-level `scrapeFailures` array.
-
-### Full schema:
-
-```json
-{
-  "lastUpdated": "2026-04-22",
-  "scrapeFailures": ["BrandA", "BrandB"],
-  "brands": [
-    {
-      "name": "247Bet",
-      "url": "https://247bet.com/en-gb/promotions",
-      "lastChecked": "22/04/2026",
-      "changed": false,
-      "promos": [
-        {"text": "Sports Welcome – 100% Bonus up to £50", "status": "unchanged"},
-        {"text": "New – £25 Free Bet", "status": "new"},
-        {"text": "Retired – Mega Cash Drop", "status": "removed"}
-      ]
-    },
-    ...
-  ]
-}
-```
-
-**Critical rules:**
-- Never invent promos. If the page fails to load, keep previous data.
-- Do not add new brands. The 28-brand list is curated.
-- Do not remove brands. If a brand page is permanently broken, flag it but keep the entry.
-- Promo titles should be cleaned (no HTML, no trailing whitespace, no marketing flourish like "NEW!!" badges).
-
----
-
-## STEP 5 — Save dated snapshots
+## STEP 4 — Save dated snapshots
 
 Before committing the updated `data/*.json` files, save snapshots of today's data to:
 
-```
 snapshots/YYYY-MM-DD/seo.json
 snapshots/YYYY-MM-DD/keywords.json
-snapshots/YYYY-MM-DD/promos.json
-```
 
-The snapshots are exact copies of what goes into `data/`. This gives you rollback capability and a historical archive.
+The snapshots are exact copies of what goes into `data/`. This gives you rollback capability and a historical archive. Do NOT snapshot `promos.json`.
 
 ---
 
-## STEP 6 — Commit everything to `main`
+## STEP 5 — Commit to `main`
 
 Single commit with message:
-```
+
 Daily dashboard update YYYY-MM-DD
-```
 
 Files in the commit:
 - `data/seo.json` (modified)
 - `data/keywords.json` (modified)
-- `data/promos.json` (modified)
 - `snapshots/YYYY-MM-DD/seo.json` (new)
 - `snapshots/YYYY-MM-DD/keywords.json` (new)
-- `snapshots/YYYY-MM-DD/promos.json` (new)
 
 Commit directly to `main`. Vercel will auto-redeploy within ~30 seconds of the commit.
 
 ---
 
-## STEP 7 — Send status DM to Chris on Slack
+## STEP 6 — Send status DM to Chris on Slack
 
 Send a short summary as a direct message to Chris, using Slack DM conversation ID `D04E1KBMEBX`. Do NOT post to any public or shared channel — this is a private admin status update.
 
-If sending to `D04E1KBMEBX` fails (invalid ID, permissions error, etc.), fall back to searching Slack users for "Chris Spiteri" and sending the DM to the matching user ID. If that also fails, post the summary to Slack channel `C0AVBC6256C` as a last resort and flag the Slack delivery failure in that message.
+If sending to `D04E1KBMEBX` fails (invalid ID, permissions error, etc.), fall back to searching Slack users for "Chris Spiteri" and sending the DM to the matching user ID.
 
 Message format:
 
-```
-*Dashboard update — [DD Month YYYY]*
-
+Dashboard update — [DD Month YYYY]
 SEO: Sessions [X], Organic [Y] ([Z]% WoW change)
 Keywords: [X] pages refreshed
-Promos: [X] changed, [Y] scrape failures
-
 Live: https://freebets-seo-content-dash.vercel.app
-```
 
-If any step had warnings or scrape failures, flag them:
+If any step had warnings, flag them:
 
-```
 ⚠ Warnings: [list]
-⚠ Scrape failures: [brand names]
-```
 
 ---
 
@@ -270,7 +203,7 @@ If any step had warnings or scrape failures, flag them:
 
 - If GDCG MCP fails, do not fabricate data. Keep the previous day's `seo.json` and `keywords.json` and send a Slack DM alert to `D04E1KBMEBX`.
 - If Ahrefs MCP fails, keep previous Ahrefs values in `seo.json` and flag in `warnings`.
-- If all scrapes for promos fail, keep previous `promos.json` and send a Slack DM alert to `D04E1KBMEBX`.
+- Never modify `data/promos.json` or any promo snapshots — they are out of scope for this routine.
 - Never commit empty or malformed JSON. Validate every file parses before committing.
 - Never edit `index.html`. The dashboard markup is stable.
 
@@ -284,7 +217,8 @@ If any step had warnings or scrape failures, flag them:
 | Top queries, top pages | GSC via GDCG MCP | `data/seo.json` |
 | Per-page top 50 keywords | GSC mobile via GDCG MCP | `data/keywords.json` |
 | DR, rank, organic traffic, keyword count | Ahrefs MCP | `data/seo.json` |
-| Brand promo lists | Direct fetch + WebSearch fallback | `data/promos.json` |
 | Daily archive | Copy of above | `snapshots/YYYY-MM-DD/` |
 | Deploy trigger | Commit to `main` | Vercel auto-redeploys |
-| Status notification | Slack DM `D04E1KBMEBX` | Send summary |**
+| Status notification | Slack DM `D04E1KBMEBX` | Send summary |
+
+**Note:** Brand promotions (`data/promos.json`) are managed independently. Do not touch that file or attempt to scrape brand pages.
