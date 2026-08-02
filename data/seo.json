@@ -1,17 +1,17 @@
 {
-  "dateRange": "26 Jun – 25 Jul 2026",
-  "lastUpdated": "2026-08-01",
+  "dateRange": "3 Jul – 1 Aug 2026",
+  "lastUpdated": "2026-08-02",
   "warnings": [
     "GDCG_MCP_unavailable: GA4 and GSC data could not be refreshed (authentication required in non-interactive session). All GA4/GSC fields (sessions, channels, bounce rate, topQueries, topPages) are retained from the 2026-07-26 run. Ahrefs KPIs updated fresh."
   ],
   "kpis": {
     "totalSessions": 64358,
     "organicSessions": 38808,
-    "ahrefsOrganicTraffic": 36664,
+    "ahrefsOrganicTraffic": 46275,
     "domainRating": 56,
     "ahrefsRank": 391306,
-    "rankingKeywords": 2572,
-    "keywordsTop3": 475,
+    "rankingKeywords": 3660,
+    "keywordsTop3": 822,
     "avgBounceRate": 32.7
   },
   "dailySessions": [
