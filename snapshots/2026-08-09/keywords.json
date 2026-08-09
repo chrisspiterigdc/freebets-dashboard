@@ -1,0 +1,13 @@
+{
+  "home": {
+    "label": "/ (Home)",
+    "url": "https://www.freebets.com/",
+    "keywords": [
+      {"keyword": "free bets", "clicks": 837, "impressions": 6891, "ctr": 12.15, "position": 2.2},
+      {"keyword": "freebets", "clicks": 111, "impressions": 594, "ctr": 18.69, "position": 1.3},
+      {"keyword": "free bets uk", "clicks": 94, "impressions": 1347, "ctr": 6.98, "position": 1.8},
+      {"keyword": "free bet offers", "clicks": 72, "impressions": 2526, "ctr": 2.85, "position": 6.4},
+      {"keyword": "betting sites", "clicks": 51, "impressions": 1503, "ctr": 3.39, "position": 22.2}
+    ]
+  }
+}
