@@ -247,7 +247,7 @@ function sparkline(trend, key) {
   const fillPts = `${pts} ${W},${H} 0,${H}`;
   return `<svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
     <defs><linearGradient id="sg${key}" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#00c853" stop-opacity="0.3"/><stop offset="100%" stop-color="#00c853" stop-opacity="0"/></linearGradient></defs>
-    <polygon points="${fillPts}" fill="url(#sg${key})"/>
+    <polygon points="${fillPts}" fill="url(#sg${key})"\/>
     <polyline points="${pts}" fill="none" stroke="#00c853" stroke-width="1.5" stroke-linejoin="round"/>
   </svg>`;
 }
@@ -441,11 +441,75 @@ function renderCorePages(data) {
   renderCoreTable('all');
 }
 
+// ========== SNAPSHOT LOADER ==========
+const CORE_PAGE_DEFS = [
+  {path:'/', key:'home', label:'Home'},
+  {path:'/betting-sites/', key:'betting-sites', label:'Betting Sites'},
+  {path:'/casino/', key:'casino', label:'Casino'},
+  {path:'/casino/best-casino-sites/', key:'best-casino', label:'Best Casino Sites'},
+  {path:'/casino/free-spins/', key:'casino-free-spins', label:'Casino Free Spins'},
+  {path:'/slots/', key:'slots', label:'Slots'},
+  {path:'/slots/sign-up-offers/', key:'slots-sign-up', label:'Slots Sign-Up Offers'},
+];
+
+async function loadCoreData() {
+  const [manifest, details] = await Promise.all([
+    loadJSON('data/snapshot-index.json'),
+    loadJSON('data/current-details.json'),
+  ]);
+  if (!manifest) return null;
+
+  const allDates = manifest.dates;
+  const latestDate = manifest.latest;
+
+  const trendDates = allDates.slice(-8);
+  const fetched = {};
+  await Promise.all(trendDates.map(async d => {
+    const snap = await loadJSON(`data/snapshots/${d}.json`);
+    if (snap) fetched[d] = snap;
+  }));
+
+  const pages = CORE_PAGE_DEFS.map(def => {
+    const key = def.key;
+    const det = details && details.pages && details.pages[key];
+
+    const current = det ? {
+      clicks: det.clicks, impressions: det.impressions, avgPosition: det.avgPosition,
+      ctr: det.ctr, keywordCount: det.keywordCount, top10: det.top10, top3: det.top3,
+    } : {};
+
+    const trend = trendDates.map(d => {
+      const s = fetched[d];
+      if (!s || !s.pages[key]) return null;
+      const p = s.pages[key];
+      return {date: d, clicks: p.clicks, impressions: p.impressions, avgPosition: p.avgPosition,
+              ctr: p.ctr, keywordCount: p.keywordCount, top10: p.top10, top3: p.top3};
+    }).filter(Boolean);
+
+    const vs7d = det && det.vs7d ? det.vs7d : {};
+    const vs30d = det && det.vs30d ? det.vs30d : {};
+    const movers = det && det.movers
+      ? det.movers.map(m => ({keyword: m.kw, position: m.pos, prevPosition: m.prevPos, delta: m.delta, clicks: m.cl}))
+      : [];
+    const topKeywords = det && det.topKeywords
+      ? det.topKeywords.map(k => ({keyword: k.kw, position: k.pos, clicks: k.cl, impressions: k.imp, ctr: k.ctr}))
+      : [];
+
+    return {
+      path: def.path, key, label: def.label,
+      current, vs7d, vs30d, movers, topKeywords, trend,
+      health: {status: 200, lastChecked: null, title: '', h1: '', metaDescription: '', wordCount: null, indexed: null},
+    };
+  });
+
+  return {lastUpdated: latestDate, dataDate: latestDate, pages};
+}
+
 // ========== INIT ==========
 (async function init() {
   const [seo, core] = await Promise.all([
     loadJSON('data/seo.json'),
-    loadJSON('data/core-pages.json'),
+    loadCoreData(),
   ]);
   renderSEO(seo);
   renderCorePages(core);
