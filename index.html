@@ -24,7 +24,12 @@
 --text-muted: #6e7681;
 }
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif; background: var(--bg-primary); color: var(--text-primary); line-height: 1.5; }
+body {
+font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+background: var(--bg-primary);
+color: var(--text-primary);
+line-height: 1.5;
+}
 .header { background: var(--bg-card); border-bottom: 1px solid var(--border); padding: 1rem 2rem; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; }
 .header-left { display: flex; align-items: center; gap: 1rem; }
 .logo { font-size: 1.5rem; font-weight: 800; color: var(--green); }
@@ -32,7 +37,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxyge
 .header-date { color: var(--text-secondary); font-size: 0.85rem; }
 .header-badge { background: var(--green-dim); color: var(--green); padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.75rem; font-weight: 600; }
 .header-updated { color: var(--text-muted); font-size: 0.75rem; margin-left: 0.75rem; }
-.nav-tabs { background: var(--bg-card); border-bottom: 1px solid var(--border); padding: 0 2rem; display: flex; }
+.nav-tabs { background: var(--bg-card); border-bottom: 1px solid var(--border); padding: 0 2rem; display: flex; gap: 0; }
 .nav-tab { padding: 0.75rem 1.25rem; color: var(--text-secondary); cursor: pointer; font-size: 0.875rem; font-weight: 500; border-bottom: 2px solid transparent; transition: all 0.2s; }
 .nav-tab:hover { color: var(--text-primary); }
 .nav-tab.active { color: var(--green); border-bottom-color: var(--green); }
@@ -46,8 +51,9 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxyge
 .kpi-value { font-size: 1.75rem; font-weight: 700; color: var(--text-primary); }
 .kpi-sub { font-size: 0.8rem; color: var(--text-secondary); margin-top: 0.25rem; }
 .chart-row { display: grid; grid-template-columns: 2fr 1fr; gap: 1rem; margin-bottom: 1.5rem; }
-.chart-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; }
-.chart-card h3 { font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1rem; font-weight: 500; }
+.chart-card, .chart-card-full { background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; }
+.chart-card-full { margin-bottom: 1.5rem; }
+.chart-card h3, .chart-card-full h3 { font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1rem; font-weight: 500; }
 .table-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; margin-bottom: 1.5rem; overflow-x: auto; }
 .table-card h3 { font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1rem; font-weight: 500; }
 table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
@@ -60,52 +66,85 @@ tr:hover td { background: var(--bg-card-hover); }
 .pos-top30 { background: var(--yellow-dim); color: var(--yellow); }
 .pos-beyond { background: var(--red-dim); color: var(--red); }
 .url-cell { max-width: 350px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--blue); }
+.rank-keyword-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+.rank-keyword-tag { background: var(--green-dim); color: var(--green); padding: 0.4rem 1rem; border-radius: 6px; font-size: 1rem; font-weight: 700; }
+.page-select { background: var(--bg-card); border: 1px solid var(--border); color: var(--text-primary); padding: 0.5rem 1rem; border-radius: 6px; font-size: 0.85rem; cursor: pointer; outline: none; min-width: 250px; }
+.page-select:focus { border-color: var(--green); }
+.page-detail-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+.cron-note { background: var(--bg-card); border: 1px solid var(--border); border-left: 3px solid var(--blue); border-radius: 6px; padding: 1rem 1.25rem; font-size: 0.8rem; color: var(--text-secondary); margin-top: 0.5rem; }
+.cron-note strong { color: var(--blue); }
+.promo-kpi-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1rem; margin-bottom: 1.5rem; }
+.promo-filters { display: flex; gap: 0.5rem; margin-bottom: 1.25rem; flex-wrap: wrap; }
+.promo-filter-btn { padding: 0.35rem 0.9rem; border-radius: 20px; border: 1px solid var(--border); background: transparent; color: var(--text-secondary); font-size: 0.8rem; cursor: pointer; transition: all 0.2s; }
+.promo-filter-btn:hover { border-color: var(--green); color: var(--text-primary); }
+.promo-filter-btn.active { background: var(--green-dim); border-color: var(--green); color: var(--green); font-weight: 600; }
+.task-list { display: flex; flex-direction: column; gap: 0.5rem; }
+.task-row { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 0.85rem 1.1rem; display: flex; align-items: center; gap: 1rem; transition: border-color 0.2s; }
+.task-row:hover { border-color: #444d56; }
+.task-row.needs-review { border-left: 3px solid var(--yellow); }
+.task-row.reviewed { border-left: 3px solid var(--blue); }
+.task-row.all-clear { border-left: 3px solid var(--green); }
+.task-status { display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.2rem 0.6rem; border-radius: 20px; font-size: 0.72rem; font-weight: 600; white-space: nowrap; min-width: 110px; justify-content: center; }
+.status-needs { background: var(--yellow-dim); color: var(--yellow); }
+.status-reviewed { background: var(--blue-dim); color: var(--blue); }
+.status-clear { background: var(--green-dim); color: var(--green); }
+.task-name { font-weight: 600; color: var(--text-primary); font-size: 0.9rem; flex: 1; min-width: 140px; }
+.task-name a { color: inherit; text-decoration: none; }
+.task-name a:hover { color: var(--blue); }
+.task-meta { font-size: 0.78rem; color: var(--text-muted); white-space: nowrap; }
+.task-promos { font-size: 0.78rem; color: var(--text-secondary); white-space: nowrap; }
+.task-expand-btn { background: none; border: 1px solid var(--border); color: var(--text-secondary); padding: 0.2rem 0.6rem; border-radius: 4px; font-size: 0.72rem; cursor: pointer; white-space: nowrap; transition: all 0.2s; }
+.task-expand-btn:hover { border-color: var(--blue); color: var(--blue); }
+.task-review-btn { background: none; border: 1px solid var(--yellow); color: var(--yellow); padding: 0.2rem 0.75rem; border-radius: 4px; font-size: 0.72rem; cursor: pointer; white-space: nowrap; transition: all 0.2s; font-weight: 600; }
+.task-review-btn:hover { background: var(--yellow-dim); }
+.task-promo-list { display: none; background: var(--bg-primary); border-top: 1px solid var(--border); padding: 0.75rem 1.1rem; font-size: 0.8rem; border-radius: 0 0 8px 8px; margin-top: -0.5rem; }
+.task-promo-list.open { display: block; }
+.task-promo-list ul { list-style: none; padding: 0; columns: 2; gap: 1.5rem; }
+.task-promo-list li { padding: 0.2rem 0; color: var(--text-secondary); display: flex; align-items: flex-start; gap: 0.4rem; break-inside: avoid; }
+.task-promo-list li.new-promo { color: var(--green); }
+.task-promo-list li.removed-promo { color: var(--red); text-decoration: line-through; }
+.task-wrapper { display: flex; flex-direction: column; }
 .loading-state { text-align: center; padding: 3rem 1rem; color: var(--text-muted); font-size: 0.9rem; }
 .error-state { background: var(--red-dim); border: 1px solid var(--red); border-radius: 8px; padding: 1rem 1.25rem; color: var(--red); font-size: 0.85rem; margin-bottom: 1rem; }
+@media (max-width: 700px) { .task-row { flex-wrap: wrap; } .task-promo-list ul { columns: 1; } }
+@media (max-width: 900px) { .chart-row { grid-template-columns: 1fr; } .main { padding: 1rem; } }
+@media (max-width: 600px) { .kpi-row { grid-template-columns: repeat(2, 1fr); } }
 
-/* ===== CORE PAGES TAB ===== */
-.core-cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 1rem; margin-bottom: 1.5rem; }
-.core-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; transition: border-color 0.2s; }
-.core-card:hover { border-color: #444d56; }
-.core-card-header { padding: 1rem 1.1rem 0.75rem; border-bottom: 1px solid var(--border); display: flex; align-items: flex-start; justify-content: space-between; gap: 0.5rem; }
-.core-card-title { font-weight: 700; color: var(--text-primary); font-size: 0.95rem; }
-.core-card-path { font-size: 0.75rem; color: var(--text-muted); margin-top: 0.1rem; font-family: monospace; }
-.core-card-link { font-size: 0.75rem; color: var(--blue); text-decoration: none; white-space: nowrap; padding-top: 0.15rem; }
-.core-card-link:hover { text-decoration: underline; }
-.core-stats-row { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 0; border-bottom: 1px solid var(--border); }
-.core-stat { padding: 0.7rem 0.9rem; border-right: 1px solid var(--border); }
-.core-stat:last-child { border-right: none; }
-.core-stat-label { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.07em; color: var(--text-muted); margin-bottom: 0.25rem; }
-.core-stat-value { font-size: 1.05rem; font-weight: 700; color: var(--text-primary); }
-.core-stat-delta { font-size: 0.7rem; margin-top: 0.1rem; }
-.delta-up { color: var(--green); }
-.delta-down { color: var(--red); }
-.delta-neutral { color: var(--text-muted); }
-.core-sparkline { padding: 0.6rem 1.1rem; border-bottom: 1px solid var(--border); height: 48px; }
-.core-sparkline svg { display: block; width: 100%; height: 36px; }
-.core-movers { padding: 0.6rem 1.1rem 0.9rem; }
-.core-movers-title { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.07em; color: var(--text-muted); margin-bottom: 0.4rem; }
-.core-mover-row { display: flex; align-items: center; gap: 0.5rem; padding: 0.2rem 0; font-size: 0.78rem; }
-.mover-delta { font-weight: 700; min-width: 36px; font-size: 0.8rem; }
-.mover-kw { flex: 1; color: var(--text-secondary); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.mover-pos { color: var(--text-muted); font-size: 0.72rem; white-space: nowrap; }
-.no-data-card { display: flex; align-items: center; justify-content: center; min-height: 160px; color: var(--text-muted); font-size: 0.85rem; }
+/* ===== HISTORY MODAL ===== */
+.modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.75); display: flex; align-items: center; justify-content: center; z-index: 200; }
+.modal-overlay.hidden { display: none; }
+.modal-box { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; width: 90%; max-width: 720px; position: relative; max-height: 90vh; overflow-y: auto; }
+.modal-x { position: absolute; top: 1rem; right: 1rem; background: none; border: none; color: var(--text-muted); cursor: pointer; font-size: 1.5rem; line-height: 1; padding: 0.25rem; }
+.modal-x:hover { color: var(--text-primary); }
+.modal-title { font-size: 1rem; font-weight: 600; color: var(--text-primary); margin-bottom: 1.25rem; padding-right: 2rem; }
+.modal-stats { display: flex; gap: 1.5rem; margin-top: 1rem; flex-wrap: wrap; }
+.modal-stat { display: flex; flex-direction: column; gap: 0.15rem; }
+.modal-stat-label { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.07em; color: var(--text-muted); }
+.modal-stat-value { font-size: 1.1rem; font-weight: 700; color: var(--text-primary); }
 
-/* Rankings table filter */
-.core-filter-row { display: flex; gap: 0.5rem; margin-bottom: 1rem; flex-wrap: wrap; align-items: center; }
-.core-filter-btn { padding: 0.3rem 0.8rem; border-radius: 20px; border: 1px solid var(--border); background: transparent; color: var(--text-secondary); font-size: 0.78rem; cursor: pointer; transition: all 0.2s; }
-.core-filter-btn:hover { border-color: var(--green); color: var(--text-primary); }
-.core-filter-btn.active { background: var(--green-dim); border-color: var(--green); color: var(--green); font-weight: 600; }
-.sort-label { font-size: 0.75rem; color: var(--text-muted); margin-left: auto; }
+/* ===== KEYWORDS TAB ===== */
+.kw-db-notice { background: var(--yellow-dim); border: 1px solid var(--yellow); border-radius: 8px; padding: 0.75rem 1rem; color: var(--yellow); font-size: 0.8rem; margin-bottom: 1rem; }
+.kw-db-notice.hidden { display: none; }
+.kw-header-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem; }
+.kw-date-label { font-size: 0.78rem; color: var(--text-muted); }
+.kw-db-row { cursor: pointer; }
+.kw-db-row:hover td { background: var(--bg-card-hover); }
+.db-filter-row { display: flex; gap: 0.5rem; margin-bottom: 1rem; flex-wrap: wrap; }
+.db-filter-btn { padding: 0.3rem 0.8rem; border-radius: 20px; border: 1px solid var(--border); background: transparent; color: var(--text-secondary); font-size: 0.78rem; cursor: pointer; transition: all 0.2s; }
+.db-filter-btn:hover { border-color: var(--green); color: var(--text-primary); }
+.db-filter-btn.active { background: var(--green-dim); border-color: var(--green); color: var(--green); font-weight: 600; }
 .page-pill { display: inline-block; padding: 0.1rem 0.5rem; border-radius: 20px; font-size: 0.7rem; font-weight: 600; background: var(--blue-dim); color: var(--blue); white-space: nowrap; }
-.health-badge { display: inline-flex; align-items: center; gap: 0.25rem; padding: 0.15rem 0.5rem; border-radius: 20px; font-size: 0.68rem; font-weight: 600; }
-.health-ok { background: var(--green-dim); color: var(--green); }
-.health-warn { background: var(--yellow-dim); color: var(--yellow); }
-.health-error { background: var(--red-dim); color: var(--red); }
-.health-unknown { background: rgba(110,118,129,0.15); color: var(--text-muted); }
 
-@media (max-width: 900px) { .chart-row { grid-template-columns: 1fr; } .main { padding: 1rem; } .core-cards-grid { grid-template-columns: 1fr; } }
-@media (max-width: 600px) { .kpi-row { grid-template-columns: repeat(2, 1fr); } .core-stats-row { grid-template-columns: 1fr 1fr; } .core-stat:nth-child(2) { border-right: none; } }
+/* ===== COMPARE TAB ===== */
+.compare-controls { background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; margin-bottom: 1.5rem; display: flex; gap: 1.5rem; flex-wrap: wrap; align-items: flex-end; }
+.period-group { display: flex; flex-direction: column; gap: 0.4rem; }
+.period-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.07em; color: var(--text-muted); font-weight: 600; }
+.date-inputs { display: flex; align-items: center; gap: 0.5rem; }
+.date-input { background: var(--bg-primary); border: 1px solid var(--border); border-radius: 6px; padding: 0.4rem 0.6rem; color: var(--text-primary); font-size: 0.85rem; width: 135px; }
+.date-input:focus { outline: none; border-color: var(--green); }
+.preset-btns { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+.compare-run-btn { background: var(--green); color: #000; border: none; border-radius: 8px; padding: 0.6rem 1.5rem; font-weight: 700; cursor: pointer; font-size: 0.875rem; align-self: flex-end; }
+.compare-run-btn:hover { opacity: 0.9; }
 </style>
 </head>
 <body>
@@ -122,8 +161,11 @@ tr:hover td { background: var(--bg-card-hover); }
 </header>
 
 <nav class="nav-tabs">
-<div class="nav-tab active" data-tab="seo">SEO &amp; Traffic</div>
-<div class="nav-tab" data-tab="core">Core Pages</div>
+<div class="nav-tab active" data-tab="seo">SEO & Traffic</div>
+<div class="nav-tab" data-tab="rank">Keyword Tracker</div>
+<div class="nav-tab" data-tab="promos">Partner Promotions</div>
+<div class="nav-tab" data-tab="kwdb">All Keywords</div>
+<div class="nav-tab" data-tab="compare">Compare</div>
 </nav>
 
 <main class="main">
@@ -131,51 +173,194 @@ tr:hover td { background: var(--bg-card-hover); }
 <!-- ===================== SEO & TRAFFIC ===================== -->
 <section id="seo" class="section active">
 <div id="seoError"></div>
-<div class="kpi-row" id="seoKpiRow"><div class="loading-state">Loading SEO data…</div></div>
+<div class="kpi-row" id="seoKpiRow">
+<div class="loading-state">Loading SEO data…</div>
+</div>
 <div class="chart-row">
-<div class="chart-card"><h3>Daily Sessions (Last 30 Days)</h3><canvas id="sessionsChart" height="100"></canvas></div>
-<div class="chart-card"><h3>Traffic by Channel</h3><canvas id="channelChart" height="200"></canvas></div>
+<div class="chart-card">
+<h3>Daily Sessions (Last 30 Days)</h3>
+<canvas id="sessionsChart" height="100"></canvas>
+</div>
+<div class="chart-card">
+<h3>Traffic by Channel</h3>
+<canvas id="channelChart" height="200"></canvas>
+</div>
 </div>
 <div class="table-card">
 <h3>Top Search Queries (GSC – UK, Last 30 Days)</h3>
-<table><thead><tr><th>Query</th><th>Clicks</th><th>Impressions</th><th>CTR</th><th>Avg Position</th></tr></thead><tbody id="queriesTable"></tbody></table>
+<table>
+<thead><tr><th>Query</th><th>Clicks</th><th>Impressions</th><th>CTR</th><th>Avg Position</th></tr></thead>
+<tbody id="queriesTable"></tbody>
+</table>
 </div>
 <div class="table-card">
 <h3>Top Pages (GSC – UK, Last 30 Days)</h3>
-<table><thead><tr><th>Page</th><th>Clicks</th><th>Impressions</th><th>CTR</th><th>Avg Position</th></tr></thead><tbody id="pagesTable"></tbody></table>
+<table>
+<thead><tr><th>Page</th><th>Clicks</th><th>Impressions</th><th>CTR</th><th>Avg Position</th></tr></thead>
+<tbody id="pagesTable"></tbody>
+</table>
 </div>
 </section>
 
-<!-- ===================== CORE PAGES ===================== -->
-<section id="core" class="section">
-<div id="coreError"></div>
-<div class="kpi-row" id="coreKpiRow"><div class="loading-state">Loading core pages data…</div></div>
-<div class="core-cards-grid" id="coreCards"></div>
+<!-- ===================== KEYWORD TRACKER ===================== -->
+<section id="rank" class="section">
+<div id="kwError"></div>
+<div class="rank-keyword-header">
+<span class="rank-keyword-tag">Keyword Tracker</span>
+<span style="background: var(--blue-dim); color: var(--blue); padding: 0.3rem 0.7rem; border-radius: 6px; font-size: 0.8rem; font-weight: 600;">Mobile Only</span>
+<span style="color: var(--text-muted); font-size: 0.85rem;">Top 50 keywords per page • 30-day data</span>
+</div>
+<div class="page-detail-header" style="margin-bottom: 1rem;">
+<span style="color: var(--text-secondary); font-size: 0.85rem;">Filter by page:</span>
+<select class="page-select" id="kwPageSelector"></select>
+</div>
+<div class="kpi-row" id="kwKpiRow">
+<div class="kpi-card"><div class="kpi-label">Total Keywords</div><div class="kpi-value" id="kwCount">0</div><div class="kpi-sub">Tracked for this page</div></div>
+<div class="kpi-card"><div class="kpi-label">Total Clicks</div><div class="kpi-value" id="kwClicks" style="color: var(--green);">0</div><div class="kpi-sub">Mobile, 30 days</div></div>
+<div class="kpi-card"><div class="kpi-label">Total Impressions</div><div class="kpi-value" id="kwImpressions" style="color: var(--blue);">0</div><div class="kpi-sub">Mobile, 30 days</div></div>
+<div class="kpi-card"><div class="kpi-label">Avg Position</div><div class="kpi-value" id="kwAvgPos">0</div><div class="kpi-sub">Weighted by impressions</div></div>
+<div class="kpi-card"><div class="kpi-label">Keywords in Top 10</div><div class="kpi-value" id="kwTop10" style="color: var(--green);">0</div><div class="kpi-sub">By avg position</div></div>
+<div class="kpi-card"><div class="kpi-label">Avg CTR</div><div class="kpi-value" id="kwAvgCtr">0%</div><div class="kpi-sub">Weighted by impressions</div></div>
+</div>
 <div class="table-card">
-<h3>All Keywords — Core Pages</h3>
-<div class="core-filter-row" id="coreFilters"></div>
+<h3 id="kwTableTitle">Top Keywords — Mobile (Last 30 Days)</h3>
 <table>
-<thead><tr><th>Page</th><th>Keyword</th><th>Position</th><th>7d Change</th><th>Clicks</th><th>CTR</th></tr></thead>
-<tbody id="coreKwTable"></tbody>
+<thead><tr><th>#</th><th>Keyword</th><th>Clicks</th><th>Impressions</th><th>CTR</th><th>Avg Position</th></tr></thead>
+<tbody id="kwTable"></tbody>
 </table>
+</div>
+<div class="cron-note">
+<strong>Auto-updated daily:</strong> Data refreshed every morning at 7am UK via the automated Claude Code routine. Source: Google Search Console (UK, mobile).
+</div>
+</section>
+
+<!-- ===================== PARTNER PROMOTIONS ===================== -->
+<section id="promos" class="section">
+<div id="promoError"></div>
+<div class="promo-kpi-row" id="promoKpiRow">
+<div class="kpi-card"><div class="kpi-label">Needs Review</div><div class="kpi-value" id="promoNeedsReview" style="color:var(--yellow);">0</div><div class="kpi-sub">Action required</div></div>
+<div class="kpi-card"><div class="kpi-label">Reviewed</div><div class="kpi-value" id="promoReviewed" style="color:var(--blue);">0</div><div class="kpi-sub">Team confirmed</div></div>
+<div class="kpi-card"><div class="kpi-label">All Clear</div><div class="kpi-value" id="promoAllClear" style="color:var(--green);">0</div><div class="kpi-sub">No changes</div></div>
+<div class="kpi-card"><div class="kpi-label">Total Brands</div><div class="kpi-value" id="promoTotal">0</div><div class="kpi-sub">Active operators</div></div>
+</div>
+<div class="promo-filters">
+<button class="promo-filter-btn active" data-filter="all">All</button>
+<button class="promo-filter-btn" data-filter="needs-review">Needs Review</button>
+<button class="promo-filter-btn" data-filter="reviewed">Reviewed</button>
+<button class="promo-filter-btn" data-filter="all-clear">All Clear</button>
+</div>
+<div class="task-list" id="taskList"><div class="loading-state">Loading promotions data…</div></div>
+</section>
+
+<!-- ===================== ALL KEYWORDS (DB) ===================== -->
+<section id="kwdb" class="section">
+<div id="kwdbNotice" class="kw-db-notice hidden">Showing top keywords from latest snapshot file. Full history available after the first n8n → DB sync.</div>
+<div class="table-card">
+  <div class="kw-header-row">
+    <h3>All Keywords — Core Pages</h3>
+    <span class="kw-date-label" id="kwdbDate"></span>
+  </div>
+  <div class="db-filter-row" id="kwdbFilters">
+    <button class="db-filter-btn active" data-filter="all">All Pages</button>
+    <button class="db-filter-btn" data-filter="home">Home</button>
+    <button class="db-filter-btn" data-filter="betting-sites">Betting Sites</button>
+    <button class="db-filter-btn" data-filter="casino">Casino</button>
+    <button class="db-filter-btn" data-filter="casino-free-spins">Casino Free Spins</button>
+    <button class="db-filter-btn" data-filter="slots-sign-up">Slots Sign-Up</button>
+  </div>
+  <table>
+    <thead><tr><th>Page</th><th>Keyword</th><th>Position</th><th>Clicks</th><th>Impressions</th><th>CTR</th></tr></thead>
+    <tbody id="kwdbTableBody"><tr><td colspan="6" style="text-align:center;color:var(--text-muted);padding:2rem">Loading…</td></tr></tbody>
+  </table>
+</div>
+</section>
+
+<!-- ===================== COMPARE (DB) ===================== -->
+<section id="compare" class="section">
+<div class="compare-controls">
+  <div class="period-group">
+    <div class="period-label">Period A</div>
+    <div class="date-inputs">
+      <input type="date" id="cmpFrom1" class="date-input">
+      <span style="color:var(--text-muted)">→</span>
+      <input type="date" id="cmpTo1" class="date-input">
+    </div>
+  </div>
+  <div style="color:var(--text-muted);font-size:1.1rem;align-self:center;">vs</div>
+  <div class="period-group">
+    <div class="period-label">Period B</div>
+    <div class="date-inputs">
+      <input type="date" id="cmpFrom2" class="date-input">
+      <span style="color:var(--text-muted)">→</span>
+      <input type="date" id="cmpTo2" class="date-input">
+    </div>
+  </div>
+  <div class="period-group">
+    <div class="period-label">Presets</div>
+    <div class="preset-btns">
+      <button class="db-filter-btn" onclick="setComparePreset(7)">Last 7d vs prev 7d</button>
+      <button class="db-filter-btn" onclick="setComparePreset(30)">Last 30d vs prev 30d</button>
+      <button class="db-filter-btn" onclick="setComparePreset(90)">Last 90d vs prev 90d</button>
+    </div>
+  </div>
+  <button class="compare-run-btn" onclick="runCompare()">Compare →</button>
+</div>
+<div class="table-card">
+  <h3>Results</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Page</th>
+        <th>Clicks (A)</th><th>Clicks (B)</th><th>Δ Clicks</th>
+        <th>Position (A)</th><th>Position (B)</th><th>Δ Pos</th>
+        <th>Impressions (A)</th><th>Impressions (B)</th>
+      </tr>
+    </thead>
+    <tbody id="cmpTableBody">
+      <tr><td colspan="9" style="text-align:center;color:var(--text-muted);padding:2rem">Select date ranges above and click Compare →</td></tr>
+    </tbody>
+  </table>
 </div>
 </section>
 
 </main>
 
+<!-- ===== KEYWORD HISTORY MODAL ===== -->
+<div id="historyModal" class="modal-overlay hidden">
+  <div class="modal-box">
+    <button class="modal-x" onclick="closeHistoryModal()">×</button>
+    <div class="modal-title" id="historyModalTitle">Loading…</div>
+    <div id="historyEmpty" style="display:none;text-align:center;color:var(--text-muted);padding:2rem">No history data yet — will appear after the first few daily syncs.</div>
+    <canvas id="historyChart" style="max-height:280px"></canvas>
+    <div class="modal-stats" id="historyStats"></div>
+  </div>
+</div>
+
 <script>
+// ========== DATA LOADING ==========
 const CACHE_BUSTER = '?t=' + Date.now();
 
-function loadJSON(path) {
-  return fetch(path + CACHE_BUSTER).then(r => { if (!r.ok) throw new Error(`HTTP ${r.status}`); return r.json(); }).catch(() => null);
+let SEO_DATA = null;
+let KW_DATA = null;
+let PROMO_DATA = null;
+
+async function loadJSON(path) {
+  try {
+    const res = await fetch(path + CACHE_BUSTER);
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    return await res.json();
+  } catch (err) {
+    console.error(`Failed to load ${path}:`, err);
+    return null;
+  }
 }
 
-function showError(id, msg) {
-  const el = document.getElementById(id);
-  if (el) el.innerHTML = `<div class="error-state">⚠ ${msg}</div>`;
+function showError(containerId, message) {
+  const el = document.getElementById(containerId);
+  if (el) el.innerHTML = `<div class="error-state">⚠ ${message}</div>`;
 }
 
-// Tab switching
+// ========== TAB SWITCHING ==========
 document.querySelectorAll('.nav-tab').forEach(tab => {
   tab.addEventListener('click', () => {
     document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
@@ -186,7 +371,7 @@ document.querySelectorAll('.nav-tab').forEach(tab => {
 });
 
 function posBadge(pos) {
-  if (pos <= 3)  return `<span class="pos-badge pos-top3">${pos.toFixed(1)}</span>`;
+  if (pos <= 3) return `<span class="pos-badge pos-top3">${pos.toFixed(1)}</span>`;
   if (pos <= 10) return `<span class="pos-badge pos-top10">${pos.toFixed(1)}</span>`;
   if (pos <= 30) return `<span class="pos-badge pos-top30">${pos.toFixed(1)}</span>`;
   return `<span class="pos-badge pos-beyond">${pos.toFixed(1)}</span>`;
@@ -194,9 +379,12 @@ function posBadge(pos) {
 
 // ========== SEO & TRAFFIC ==========
 function renderSEO(data) {
-  if (!data) { showError('seoError', 'Could not load SEO data. Try refreshing.'); return; }
+  if (!data) { showError('seoError', 'Could not load SEO data. Try refreshing the page.'); return; }
+
   document.getElementById('headerDate').textContent = `Data: ${data.dateRange}`;
-  if (data.lastUpdated) document.getElementById('headerUpdated').textContent = `Updated: ${data.lastUpdated}`;
+  if (data.lastUpdated) {
+    document.getElementById('headerUpdated').textContent = `Updated: ${data.lastUpdated}`;
+  }
 
   const kpis = data.kpis || {};
   document.getElementById('seoKpiRow').innerHTML = `
@@ -205,19 +393,20 @@ function renderSEO(data) {
     <div class="kpi-card"><div class="kpi-label">Ahrefs Organic Traffic</div><div class="kpi-value">${(kpis.ahrefsOrganicTraffic||0).toLocaleString()}</div><div class="kpi-sub">Est. monthly organic visits</div></div>
     <div class="kpi-card"><div class="kpi-label">Domain Rating</div><div class="kpi-value">${kpis.domainRating||0}</div><div class="kpi-sub">Ahrefs rank #${(kpis.ahrefsRank||0).toLocaleString()}</div></div>
     <div class="kpi-card"><div class="kpi-label">Ranking Keywords</div><div class="kpi-value">${(kpis.rankingKeywords||0).toLocaleString()}</div><div class="kpi-sub">${kpis.keywordsTop3||0} in top 3</div></div>
-    <div class="kpi-card"><div class="kpi-label">Avg Bounce Rate</div><div class="kpi-value">${kpis.avgBounceRate ? kpis.avgBounceRate.toFixed(1)+'%' : '0%'}</div><div class="kpi-sub">30-day average</div></div>`;
+    <div class="kpi-card"><div class="kpi-label">Avg Bounce Rate</div><div class="kpi-value">${kpis.avgBounceRate ? kpis.avgBounceRate.toFixed(1) + '%' : '0%'}</div><div class="kpi-sub">30-day average</div></div>
+  `;
 
-  const sd = data.dailySessions || [];
+  const sessionsData = data.dailySessions || [];
   new Chart(document.getElementById('sessionsChart'), {
     type: 'line',
-    data: { labels: sd.map(d => d.date), datasets: [{ label: 'Sessions', data: sd.map(d => d.value), borderColor: '#00c853', backgroundColor: 'rgba(0,200,83,0.1)', fill: true, tension: 0.3, pointRadius: 2, pointHoverRadius: 5, borderWidth: 2 }] },
+    data: { labels: sessionsData.map(d => d.date), datasets: [{ label: 'Sessions', data: sessionsData.map(d => d.value), borderColor: '#00c853', backgroundColor: 'rgba(0, 200, 83, 0.1)', fill: true, tension: 0.3, pointRadius: 2, pointHoverRadius: 5, borderWidth: 2 }] },
     options: { responsive: true, plugins: { legend: { display: false }, tooltip: { backgroundColor: '#161b22', titleColor: '#e6edf3', bodyColor: '#8b949e', borderColor: '#30363d', borderWidth: 1 } }, scales: { x: { ticks: { color: '#6e7681', maxRotation: 45, font: { size: 10 } }, grid: { color: 'rgba(48,54,61,0.3)' } }, y: { ticks: { color: '#6e7681', font: { size: 10 } }, grid: { color: 'rgba(48,54,61,0.3)' } } } }
   });
 
-  const ch = data.channels || [];
+  const channels = data.channels || [];
   new Chart(document.getElementById('channelChart'), {
     type: 'doughnut',
-    data: { labels: ch.map(c => c.name), datasets: [{ data: ch.map(c => c.sessions), backgroundColor: ch.map(c => c.color), borderColor: '#161b22', borderWidth: 3 }] },
+    data: { labels: channels.map(c => c.name), datasets: [{ data: channels.map(c => c.sessions), backgroundColor: channels.map(c => c.color), borderColor: '#161b22', borderWidth: 3 }] },
     options: { responsive: true, plugins: { legend: { position: 'bottom', labels: { color: '#8b949e', padding: 12, font: { size: 11 } } } } }
   });
 
@@ -232,288 +421,400 @@ function renderSEO(data) {
   });
 }
 
-// ========== CORE PAGES ==========
-function sparkline(trend, key) {
-  if (!trend || trend.length < 2) return '';
-  const vals = trend.map(t => t.clicks || 0);
-  const min = Math.min(...vals), max = Math.max(...vals);
-  const range = max - min || 1;
-  const W = 300, H = 36;
-  const pts = vals.map((v, i) => {
-    const x = (i / (vals.length - 1)) * W;
-    const y = H - 2 - ((v - min) / range) * (H - 6);
-    return `${x.toFixed(1)},${y.toFixed(1)}`;
-  }).join(' ');
-  const fillPts = `${pts} ${W},${H} 0,${H}`;
-  return `<svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-    <defs><linearGradient id="sg${key}" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#00c853" stop-opacity="0.3"/><stop offset="100%" stop-color="#00c853" stop-opacity="0"/></linearGradient></defs>
-    <polygon points="${fillPts}" fill="url(#sg${key})"\/>
-    <polyline points="${pts}" fill="none" stroke="#00c853" stroke-width="1.5" stroke-linejoin="round"/>
-  </svg>`;
-}
+// ========== KEYWORD TRACKER ==========
+function renderKeywordTable(pageKey) {
+  if (!KW_DATA || !KW_DATA[pageKey]) return;
+  const page = KW_DATA[pageKey];
+  const kws = page.keywords || [];
 
-function deltaHtml(val, inverse) {
-  if (val === null || val === undefined) return '<span class="delta-neutral">—</span>';
-  const good = inverse ? val < 0 : val > 0;
-  const cls = val === 0 ? 'delta-neutral' : good ? 'delta-up' : 'delta-down';
-  const sign = val > 0 ? '+' : '';
-  return `<span class="${cls}">${sign}${val}</span>`;
-}
+  document.getElementById('kwTableTitle').textContent = `Top ${kws.length} Keywords — ${page.label} — Mobile (Last 30 Days)`;
 
-function deltaPosFmt(delta) {
-  if (delta === null || delta === undefined) return '<span class="delta-neutral">—</span>';
-  const good = delta > 0;
-  const cls = delta === 0 ? 'delta-neutral' : good ? 'delta-up' : 'delta-down';
-  const arrow = delta > 0 ? '↑' : '↓';
-  return `<span class="${cls}">${arrow}${Math.abs(delta).toFixed(1)}</span>`;
-}
+  const totalClicks = kws.reduce((s, k) => s + k.clicks, 0);
+  const totalImpressions = kws.reduce((s, k) => s + k.impressions, 0);
+  const weightedPos = totalImpressions > 0 ? kws.reduce((s, k) => s + k.position * k.impressions, 0) / totalImpressions : 0;
+  const weightedCtr = totalImpressions > 0 ? (totalClicks / totalImpressions * 100) : 0;
+  const top10Count = kws.filter(k => k.position <= 10).length;
 
-let CORE_DATA = null;
-let activePageFilter = 'all';
+  document.getElementById('kwCount').textContent = kws.length;
+  document.getElementById('kwClicks').textContent = totalClicks.toLocaleString();
+  document.getElementById('kwImpressions').textContent = totalImpressions.toLocaleString();
+  document.getElementById('kwAvgPos').textContent = weightedPos.toFixed(1);
+  document.getElementById('kwAvgPos').style.color = weightedPos <= 10 ? 'var(--green)' : weightedPos <= 20 ? 'var(--blue)' : weightedPos <= 30 ? 'var(--yellow)' : 'var(--red)';
+  document.getElementById('kwTop10').textContent = top10Count;
+  document.getElementById('kwAvgCtr').textContent = weightedCtr.toFixed(1) + '%';
 
-function renderCoreCards() {
-  if (!CORE_DATA) return;
-  const pages = CORE_DATA.pages || [];
-  const grid = document.getElementById('coreCards');
-  grid.innerHTML = '';
-
-  // Summary KPIs
-  const active = pages.filter(p => p.current && p.current.clicks);
-  const totalClicks = active.reduce((s, p) => s + (p.current.clicks || 0), 0);
-  const totalImpressions = active.reduce((s, p) => s + (p.current.impressions || 0), 0);
-  const totalKws = active.reduce((s, p) => s + (p.current.keywordCount || 0), 0);
-  const totalTop10 = active.reduce((s, p) => s + (p.current.top10 || 0), 0);
-  const vs7dClicks = active.reduce((s, p) => s + (p.vs7d && p.vs7d.clicksDelta != null ? p.vs7d.clicksDelta : 0), 0);
-
-  document.getElementById('coreKpiRow').innerHTML = `
-    <div class="kpi-card"><div class="kpi-label">Total Clicks</div><div class="kpi-value" style="color:var(--green)">${totalClicks.toLocaleString()}</div><div class="kpi-sub">${deltaHtml(vs7dClicks, false)} vs 7 days ago</div></div>
-    <div class="kpi-card"><div class="kpi-label">Total Impressions</div><div class="kpi-value">${totalImpressions.toLocaleString()}</div><div class="kpi-sub">Across ${active.length} active pages</div></div>
-    <div class="kpi-card"><div class="kpi-label">Keywords Tracked</div><div class="kpi-value">${totalKws.toLocaleString()}</div><div class="kpi-sub">${totalTop10} in top 10</div></div>
-    <div class="kpi-card"><div class="kpi-label">Pages Monitored</div><div class="kpi-value">${pages.length}</div><div class="kpi-sub">${active.length} with GSC data</div></div>`;
-
-  // Page cards
-  pages.forEach((page, i) => {
-    const cur = page.current || {};
-    const vs7 = page.vs7d || {};
-    const movers = (page.movers || []).slice(0, 4);
-    const hasData = cur.clicks !== undefined;
-    const health = page.health || {};
-
-    let healthHtml = '';
-    if (health.lastChecked) {
-      const cls = health.status === 200 ? 'health-ok' : health.status >= 400 ? 'health-error' : 'health-warn';
-      const label = health.status === 200 ? '● Live' : `● ${health.status}`;
-      healthHtml = `<span class="health-badge ${cls}">${label}</span>`;
-    } else {
-      healthHtml = `<span class="health-badge health-unknown">● Unchecked</span>`;
-    }
-
-    const moversHtml = movers.length
-      ? movers.map(m => {
-          const cls = m.delta > 0 ? 'delta-up' : 'delta-down';
-          const arrow = m.delta > 0 ? '↑' : '↓';
-          return `<div class="core-mover-row">
-            <span class="mover-delta ${cls}">${arrow}${Math.abs(m.delta).toFixed(0)}</span>
-            <span class="mover-kw" title="${m.keyword}">${m.keyword}</span>
-            <span class="mover-pos">pos ${m.position}</span>
-          </div>`;
-        }).join('')
-      : `<div style="color:var(--text-muted);font-size:0.78rem;">No position data yet</div>`;
-
-    const statsHtml = hasData ? `
-      <div class="core-stats-row">
-        <div class="core-stat">
-          <div class="core-stat-label">Clicks</div>
-          <div class="core-stat-value">${cur.clicks.toLocaleString()}</div>
-          <div class="core-stat-delta">${deltaHtml(vs7.clicksDelta, false)}</div>
-        </div>
-        <div class="core-stat">
-          <div class="core-stat-label">Impressions</div>
-          <div class="core-stat-value">${(cur.impressions||0).toLocaleString()}</div>
-          <div class="core-stat-delta">${deltaHtml(vs7.impressionsDelta, false)}</div>
-        </div>
-        <div class="core-stat">
-          <div class="core-stat-label">Avg Pos</div>
-          <div class="core-stat-value">${cur.avgPosition || '—'}</div>
-          <div class="core-stat-delta">${deltaPosFmt(vs7.positionDelta)}</div>
-        </div>
-        <div class="core-stat">
-          <div class="core-stat-label">Top 10</div>
-          <div class="core-stat-value">${cur.top10 || 0}</div>
-          <div class="core-stat-delta" style="color:var(--text-muted);font-size:0.7rem;">of ${cur.keywordCount||0} kws</div>
-        </div>
-      </div>
-      <div class="core-sparkline">${sparkline(page.trend, i)}</div>` :
-      `<div class="no-data-card">No GSC data yet — add to tracking</div>`;
-
-    grid.innerHTML += `
-      <div class="core-card">
-        <div class="core-card-header">
-          <div>
-            <div class="core-card-title">${page.label}</div>
-            <div class="core-card-path">${page.path}</div>
-          </div>
-          <div style="display:flex;flex-direction:column;align-items:flex-end;gap:0.3rem;">
-            ${healthHtml}
-            <a class="core-card-link" href="https://www.freebets.com${page.path}" target="_blank" rel="noopener">View ↗</a>
-          </div>
-        </div>
-        ${statsHtml}
-        <div class="core-movers">
-          <div class="core-movers-title">Top movers vs 7 days</div>
-          ${moversHtml}
-        </div>
-      </div>`;
-  });
-}
-
-function renderCoreTable(filter) {
-  if (!CORE_DATA) return;
-  const pages = CORE_DATA.pages || [];
-  const tbody = document.getElementById('coreKwTable');
-
-  // Build mover lookup for delta display
-  const moverMap = {};
-  pages.forEach(p => {
-    (p.movers || []).forEach(m => {
-      moverMap[`${p.key}::${m.keyword}`] = m.delta;
-    });
-  });
-
+  const tbody = document.getElementById('kwTable');
   tbody.innerHTML = '';
-  let count = 0;
-
-  pages.forEach(page => {
-    if (filter !== 'all' && page.key !== filter) return;
-    (page.topKeywords || []).forEach(kw => {
-      const delta = moverMap[`${page.key}::${kw.keyword}`];
-      const deltaCell = delta !== undefined
-        ? `<span class="${delta > 0 ? 'delta-up' : delta < 0 ? 'delta-down' : 'delta-neutral'}">${delta > 0 ? '↑' : '↓'}${Math.abs(delta).toFixed(0)}</span>`
-        : '<span class="delta-neutral">—</span>';
-      tbody.innerHTML += `<tr>
-        <td><span class="page-pill">${page.label}</span></td>
-        <td style="color:var(--text-primary)">${kw.keyword}</td>
-        <td>${posBadge(kw.position)}</td>
-        <td>${deltaCell}</td>
-        <td style="color:var(--text-primary);font-weight:600">${kw.clicks.toLocaleString()}</td>
-        <td>${kw.ctr.toFixed(1)}%</td>
-      </tr>`;
-      count++;
-    });
+  kws.forEach((k, i) => {
+    tbody.innerHTML += `<tr><td style="color:var(--text-muted);font-size:0.75rem;">${i + 1}</td><td style="color:var(--text-primary);font-weight:500;">${k.keyword}</td><td style="color:var(--text-primary);font-weight:600;">${k.clicks.toLocaleString()}</td><td>${k.impressions.toLocaleString()}</td><td>${k.ctr.toFixed(1)}%</td><td>${posBadge(k.position)}</td></tr>`;
   });
-
-  if (!count) tbody.innerHTML = `<tr><td colspan="6" style="text-align:center;color:var(--text-muted);padding:2rem">No keywords for this page yet.</td></tr>`;
 }
 
-function setupCoreFilters() {
-  if (!CORE_DATA) return;
-  const container = document.getElementById('coreFilters');
-  const pages = CORE_DATA.pages || [];
+function renderKeywords(data) {
+  if (!data) { showError('kwError', 'Could not load keyword data. Try refreshing the page.'); return; }
+  KW_DATA = data;
 
-  const all = document.createElement('button');
-  all.className = 'core-filter-btn active';
-  all.textContent = 'All pages';
-  all.dataset.filter = 'all';
-  container.appendChild(all);
-
-  pages.forEach(p => {
-    const btn = document.createElement('button');
-    btn.className = 'core-filter-btn';
-    btn.textContent = p.label;
-    btn.dataset.filter = p.key;
-    container.appendChild(btn);
+  const selector = document.getElementById('kwPageSelector');
+  selector.innerHTML = '';
+  Object.keys(data).forEach(key => {
+    const opt = document.createElement('option');
+    opt.value = key;
+    opt.textContent = data[key].label || key;
+    selector.appendChild(opt);
   });
 
-  container.querySelectorAll('.core-filter-btn').forEach(btn => {
+  selector.addEventListener('change', e => renderKeywordTable(e.target.value));
+
+  const firstKey = Object.keys(data)[0];
+  if (firstKey) renderKeywordTable(firstKey);
+}
+
+// ========== PARTNER PROMOTIONS ==========
+function getReviewedState() {
+  try { return JSON.parse(localStorage.getItem('promoReviewed') || '{}'); } catch(e) { return {}; }
+}
+function setReviewedState(state) { localStorage.setItem('promoReviewed', JSON.stringify(state)); }
+
+function getBrandState(brand) {
+  const reviewed = getReviewedState();
+  if (brand.changed) {
+    return reviewed[brand.name] === brand.lastChecked ? 'reviewed' : 'needs-review';
+  }
+  return 'all-clear';
+}
+
+window.markReviewed = function(brandName, lastChecked) {
+  const state = getReviewedState();
+  state[brandName] = lastChecked;
+  setReviewedState(state);
+  renderPromos(document.querySelector('.promo-filter-btn.active').dataset.filter);
+};
+
+window.togglePromoList = function(id) {
+  const el = document.getElementById('promoList_' + id);
+  if (el) el.classList.toggle('open');
+};
+
+function renderPromos(filter) {
+  if (!PROMO_DATA) return;
+  const list = document.getElementById('taskList');
+  const brands = PROMO_DATA.brands || [];
+  let needsReview = 0, reviewedCount = 0, allClear = 0;
+
+  const rows = brands.map((brand, i) => {
+    const state = getBrandState(brand);
+    if (state === 'needs-review') needsReview++;
+    else if (state === 'reviewed') reviewedCount++;
+    else allClear++;
+
+    if (filter !== 'all' && filter !== state) return '';
+
+    const statusLabel = state === 'needs-review' ? '● Needs Review' : state === 'reviewed' ? '✓ Reviewed' : '✓ All Clear';
+    const statusClass = state === 'needs-review' ? 'status-needs' : state === 'reviewed' ? 'status-reviewed' : 'status-clear';
+    const reviewBtn = state === 'needs-review' ? `<button class="task-review-btn" onclick="markReviewed('${brand.name.replace(/'/g, "\\'")}','${brand.lastChecked}')">Mark Reviewed</button>` : '';
+    const safeId = 'brand_' + i;
+
+    const promoItems = (brand.promos || []).map(p => {
+      if (typeof p === 'string') return `<li>· ${p}</li>`;
+      if (p.status === 'new') return `<li class="new-promo">+ ${p.text}</li>`;
+      if (p.status === 'removed') return `<li class="removed-promo">− ${p.text}</li>`;
+      return `<li>· ${p.text || p}</li>`;
+    }).join('');
+
+    return `
+    <div class="task-wrapper" data-state="${state}">
+      <div class="task-row ${state}">
+        <span class="task-status ${statusClass}">${statusLabel}</span>
+        <span class="task-name"><a href="${brand.url}" target="_blank" rel="noopener">${brand.name}</a></span>
+        <span class="task-promos">${(brand.promos || []).length} promo${(brand.promos || []).length !== 1 ? 's' : ''}</span>
+        <span class="task-meta">Checked ${brand.lastChecked}</span>
+        <button class="task-expand-btn" onclick="togglePromoList('${safeId}')">View promos</button>
+        ${reviewBtn}
+      </div>
+      <div class="task-promo-list" id="promoList_${safeId}"><ul>${promoItems}</ul></div>
+    </div>`;
+  }).join('');
+
+  list.innerHTML = rows || '<div class="loading-state">No brands match this filter.</div>';
+  document.getElementById('promoNeedsReview').textContent = needsReview;
+  document.getElementById('promoReviewed').textContent = reviewedCount;
+  document.getElementById('promoAllClear').textContent = allClear;
+  document.getElementById('promoTotal').textContent = brands.length;
+}
+
+function setupPromoFilters() {
+  document.querySelectorAll('.promo-filter-btn').forEach(btn => {
     btn.addEventListener('click', () => {
-      container.querySelectorAll('.core-filter-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.promo-filter-btn').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
-      renderCoreTable(btn.dataset.filter);
+      renderPromos(btn.dataset.filter);
     });
   });
-}
-
-function renderCorePages(data) {
-  if (!data) { showError('coreError', 'Could not load core pages data. Try refreshing.'); return; }
-  CORE_DATA = data;
-  renderCoreCards();
-  setupCoreFilters();
-  renderCoreTable('all');
-}
-
-// ========== SNAPSHOT LOADER ==========
-const CORE_PAGE_DEFS = [
-  {path:'/', key:'home', label:'Home'},
-  {path:'/betting-sites/', key:'betting-sites', label:'Betting Sites'},
-  {path:'/casino/', key:'casino', label:'Casino'},
-  {path:'/casino/best-casino-sites/', key:'best-casino', label:'Best Casino Sites'},
-  {path:'/casino/free-spins/', key:'casino-free-spins', label:'Casino Free Spins'},
-  {path:'/slots/', key:'slots', label:'Slots'},
-  {path:'/slots/sign-up-offers/', key:'slots-sign-up', label:'Slots Sign-Up Offers'},
-];
-
-async function loadCoreData() {
-  const [manifest, details] = await Promise.all([
-    loadJSON('data/snapshot-index.json'),
-    loadJSON('data/current-details.json'),
-  ]);
-  if (!manifest) return null;
-
-  const allDates = manifest.dates;
-  const latestDate = manifest.latest;
-
-  const trendDates = allDates.slice(-8);
-  const fetched = {};
-  await Promise.all(trendDates.map(async d => {
-    const snap = await loadJSON(`data/snapshots/${d}.json`);
-    if (snap) fetched[d] = snap;
-  }));
-
-  const pages = CORE_PAGE_DEFS.map(def => {
-    const key = def.key;
-    const det = details && details.pages && details.pages[key];
-
-    const current = det ? {
-      clicks: det.clicks, impressions: det.impressions, avgPosition: det.avgPosition,
-      ctr: det.ctr, keywordCount: det.keywordCount, top10: det.top10, top3: det.top3,
-    } : {};
-
-    const trend = trendDates.map(d => {
-      const s = fetched[d];
-      if (!s || !s.pages[key]) return null;
-      const p = s.pages[key];
-      return {date: d, clicks: p.clicks, impressions: p.impressions, avgPosition: p.avgPosition,
-              ctr: p.ctr, keywordCount: p.keywordCount, top10: p.top10, top3: p.top3};
-    }).filter(Boolean);
-
-    const vs7d = det && det.vs7d ? det.vs7d : {};
-    const vs30d = det && det.vs30d ? det.vs30d : {};
-    const movers = det && det.movers
-      ? det.movers.map(m => ({keyword: m.kw, position: m.pos, prevPosition: m.prevPos, delta: m.delta, clicks: m.cl}))
-      : [];
-    const topKeywords = det && det.topKeywords
-      ? det.topKeywords.map(k => ({keyword: k.kw, position: k.pos, clicks: k.cl, impressions: k.imp, ctr: k.ctr}))
-      : [];
-
-    return {
-      path: def.path, key, label: def.label,
-      current, vs7d, vs30d, movers, topKeywords, trend,
-      health: {status: 200, lastChecked: null, title: '', h1: '', metaDescription: '', wordCount: null, indexed: null},
-    };
-  });
-
-  return {lastUpdated: latestDate, dataDate: latestDate, pages};
 }
 
 // ========== INIT ==========
 (async function init() {
-  const [seo, core] = await Promise.all([
+  const [seo, keywords, promos] = await Promise.all([
     loadJSON('data/seo.json'),
-    loadCoreData(),
+    loadJSON('data/keywords.json'),
+    loadJSON('data/promos.json')
   ]);
+
+  SEO_DATA = seo;
+  PROMO_DATA = promos;
+
   renderSEO(seo);
-  renderCorePages(core);
+  renderKeywords(keywords);
+  setupPromoFilters();
+  renderPromos('all');
 })();
+
+// ========== PAGE LABELS (for DB tabs) ==========
+const PAGE_LABELS = {
+  'home': 'Home',
+  'betting-sites': 'Betting Sites',
+  'casino': 'Casino',
+  'best-casino': 'Best Casino',
+  'casino-free-spins': 'Casino Free Spins',
+  'slots': 'Slots',
+  'slots-sign-up': 'Slots Sign-Up',
+};
+
+// ========== ALL KEYWORDS TAB (DB-backed) ==========
+let kwdbLoaded = false;
+let kwdbAllRows = [];
+let kwdbActiveFilter = 'all';
+
+document.querySelector('[data-tab="kwdb"]').addEventListener('click', () => {
+  if (!kwdbLoaded) { kwdbLoaded = true; loadKwdbTab('all'); }
+});
+
+document.querySelectorAll('#kwdbFilters .db-filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('#kwdbFilters .db-filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    kwdbActiveFilter = btn.dataset.filter;
+    renderKwdbTable(kwdbAllRows, kwdbActiveFilter);
+  });
+});
+
+async function loadKwdbTab() {
+  const tbody = document.getElementById('kwdbTableBody');
+  tbody.innerHTML = '<tr><td colspan="6" style="text-align:center;color:var(--text-muted);padding:2rem">Loading from database…</td></tr>';
+
+  const res = await fetch('/api/keywords').then(r => r.json()).catch(() => null);
+
+  if (!res || !res.keywords || !res.keywords.length) {
+    const details = await loadJSON('data/current-details.json');
+    if (details) {
+      const rows = [];
+      for (const [key, data] of Object.entries(details.pages || {})) {
+        if (!data || !data.topKeywords) continue;
+        data.topKeywords.forEach(k => rows.push({ page_key: key, keyword: k.kw, position: k.pos, clicks: k.cl, impressions: k.imp, ctr: k.ctr }));
+      }
+      document.getElementById('kwdbNotice').classList.remove('hidden');
+      document.getElementById('kwdbDate').textContent = details.date ? `Data: ${details.date} (top 15/page)` : '';
+      kwdbAllRows = rows;
+      renderKwdbTable(rows, kwdbActiveFilter);
+      return;
+    }
+    tbody.innerHTML = '<tr><td colspan="6" style="text-align:center;color:var(--text-muted);padding:2rem">No keyword data yet. Run the backfill endpoint or wait for the first n8n sync.</td></tr>';
+    return;
+  }
+
+  document.getElementById('kwdbDate').textContent = res.date ? `Data: ${res.date}` : '';
+  kwdbAllRows = res.keywords;
+  renderKwdbTable(res.keywords, kwdbActiveFilter);
+}
+
+function renderKwdbTable(rows, filter) {
+  const tbody = document.getElementById('kwdbTableBody');
+  const filtered = filter === 'all' ? rows : rows.filter(r => r.page_key === filter);
+
+  if (!filtered.length) {
+    tbody.innerHTML = '<tr><td colspan="6" style="text-align:center;color:var(--text-muted);padding:2rem">No keywords for this page yet.</td></tr>';
+    return;
+  }
+
+  tbody.innerHTML = filtered.map(kw => `
+    <tr class="kw-db-row" onclick="openHistoryModal('${kw.page_key}','${kw.keyword.replace(/'/g,"\\'")}')"> 
+      <td><span class="page-pill">${PAGE_LABELS[kw.page_key] || kw.page_key}</span></td>
+      <td style="color:var(--text-primary)">${kw.keyword}</td>
+      <td>${kw.position != null ? posBadge(parseFloat(kw.position)) : '—'}</td>
+      <td style="color:var(--text-primary);font-weight:600">${(kw.clicks || 0).toLocaleString()}</td>
+      <td>${(kw.impressions || 0).toLocaleString()}</td>
+      <td>${kw.ctr != null ? parseFloat(kw.ctr).toFixed(1) + '%' : '—'}</td>
+    </tr>`).join('');
+}
+
+// ========== KEYWORD HISTORY MODAL ==========
+let historyChartInstance = null;
+
+async function openHistoryModal(pageKey, keyword) {
+  const modal = document.getElementById('historyModal');
+  document.getElementById('historyModalTitle').textContent = `"${keyword}" — ${PAGE_LABELS[pageKey] || pageKey}`;
+  document.getElementById('historyEmpty').style.display = 'none';
+  document.getElementById('historyStats').innerHTML = '';
+  modal.classList.remove('hidden');
+
+  if (historyChartInstance) { historyChartInstance.destroy(); historyChartInstance = null; }
+
+  const res = await fetch(`/api/history?page=${encodeURIComponent(pageKey)}&keyword=${encodeURIComponent(keyword)}`).then(r => r.json()).catch(() => null);
+
+  if (!res || !res.history || !res.history.length) {
+    document.getElementById('historyEmpty').style.display = 'block';
+    document.getElementById('historyChart').style.display = 'none';
+    return;
+  }
+
+  document.getElementById('historyChart').style.display = 'block';
+
+  const dates = res.history.map(h => h.snapshot_date.slice(0, 10));
+  const positions = res.history.map(h => h.position != null ? parseFloat(h.position) : null);
+  const clicks = res.history.map(h => h.clicks || 0);
+
+  const first = positions.find(p => p != null);
+  const last = positions[positions.length - 1];
+  const bestPos = Math.min(...positions.filter(p => p != null));
+
+  document.getElementById('historyStats').innerHTML = `
+    <div class="modal-stat"><div class="modal-stat-label">Current</div><div class="modal-stat-value">${last != null ? last.toFixed(1) : '—'}</div></div>
+    <div class="modal-stat"><div class="modal-stat-label">First tracked</div><div class="modal-stat-value">${first != null ? first.toFixed(1) : '—'}</div></div>
+    <div class="modal-stat"><div class="modal-stat-label">Best ever</div><div class="modal-stat-value" style="color:var(--green)">${bestPos !== Infinity ? bestPos.toFixed(1) : '—'}</div></div>
+    <div class="modal-stat"><div class="modal-stat-label">Data points</div><div class="modal-stat-value">${res.history.length}</div></div>
+  `;
+
+  historyChartInstance = new Chart(document.getElementById('historyChart'), {
+    type: 'line',
+    data: {
+      labels: dates,
+      datasets: [
+        {
+          label: 'Position',
+          data: positions,
+          borderColor: '#00c853',
+          backgroundColor: 'rgba(0,200,83,0.1)',
+          fill: true,
+          tension: 0.3,
+          pointRadius: 4,
+          borderWidth: 2,
+          yAxisID: 'y',
+          spanGaps: true,
+        },
+        {
+          label: 'Clicks',
+          data: clicks,
+          borderColor: '#58a6ff',
+          backgroundColor: 'transparent',
+          tension: 0.3,
+          pointRadius: 3,
+          borderWidth: 1.5,
+          borderDash: [4, 4],
+          yAxisID: 'y2',
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: { labels: { color: '#8b949e', font: { size: 11 } } },
+        tooltip: { backgroundColor: '#161b22', titleColor: '#e6edf3', bodyColor: '#8b949e', borderColor: '#30363d', borderWidth: 1 }
+      },
+      scales: {
+        y: {
+          reverse: true,
+          title: { display: true, text: 'Position (lower = better)', color: '#6e7681', font: { size: 10 } },
+          ticks: { color: '#6e7681' },
+          grid: { color: 'rgba(48,54,61,0.3)' }
+        },
+        y2: {
+          position: 'right',
+          title: { display: true, text: 'Clicks', color: '#6e7681', font: { size: 10 } },
+          ticks: { color: '#6e7681' },
+          grid: { display: false }
+        },
+        x: { ticks: { color: '#6e7681', maxRotation: 45, font: { size: 10 } }, grid: { color: 'rgba(48,54,61,0.3)' } }
+      }
+    }
+  });
+}
+
+function closeHistoryModal() {
+  document.getElementById('historyModal').classList.add('hidden');
+  if (historyChartInstance) { historyChartInstance.destroy(); historyChartInstance = null; }
+}
+document.getElementById('historyModal').addEventListener('click', e => { if (e.target === e.currentTarget) closeHistoryModal(); });
+
+// ========== COMPARE TAB (DB-backed) ==========
+function setComparePreset(days) {
+  const today = new Date();
+  const fmt = d => d.toISOString().slice(0, 10);
+  const to1 = fmt(today);
+  const from1 = fmt(new Date(today.getTime() - (days - 1) * 86400000));
+  const to2 = fmt(new Date(today.getTime() - days * 86400000));
+  const from2 = fmt(new Date(today.getTime() - (2 * days - 1) * 86400000));
+  document.getElementById('cmpFrom1').value = from1;
+  document.getElementById('cmpTo1').value = to1;
+  document.getElementById('cmpFrom2').value = from2;
+  document.getElementById('cmpTo2').value = to2;
+}
+
+async function runCompare() {
+  const from1 = document.getElementById('cmpFrom1').value;
+  const to1 = document.getElementById('cmpTo1').value;
+  const from2 = document.getElementById('cmpFrom2').value;
+  const to2 = document.getElementById('cmpTo2').value;
+
+  if (!from1 || !to1 || !from2 || !to2) { alert('Please fill in all four dates.'); return; }
+
+  const tbody = document.getElementById('cmpTableBody');
+  tbody.innerHTML = '<tr><td colspan="9" style="text-align:center;color:var(--text-muted);padding:2rem">Running comparison…</td></tr>';
+
+  const params = new URLSearchParams({ from1, to1, from2, to2 });
+  const res = await fetch(`/api/compare?${params}`).then(r => r.json()).catch(() => null);
+
+  if (!res) {
+    tbody.innerHTML = '<tr><td colspan="9" style="text-align:center;color:var(--red);padding:2rem">Error — check that the database is connected.</td></tr>';
+    return;
+  }
+
+  const map1 = {}, map2 = {};
+  res.period1.forEach(r => map1[r.page_key] = r);
+  res.period2.forEach(r => map2[r.page_key] = r);
+  const allPages = [...new Set([...Object.keys(map1), ...Object.keys(map2)])];
+
+  if (!allPages.length) {
+    tbody.innerHTML = `<tr><td colspan="9" style="text-align:center;color:var(--text-muted);padding:2rem">No data for these date ranges yet. Historical data builds up daily from today onwards.</td></tr>`;
+    return;
+  }
+
+  tbody.innerHTML = allPages.map(key => {
+    const a = map1[key] || {};
+    const b = map2[key] || {};
+    const label = PAGE_LABELS[key] || key;
+    const aClicks = parseInt(a.clicks) || 0;
+    const bClicks = parseInt(b.clicks) || 0;
+    const dc = aClicks - bClicks;
+    const aPos = a.avg_position != null ? parseFloat(a.avg_position) : null;
+    const bPos = b.avg_position != null ? parseFloat(b.avg_position) : null;
+    const dp = aPos != null && bPos != null ? (aPos - bPos).toFixed(1) : null;
+
+    const dcStyle = dc > 0 ? 'color:var(--green);font-weight:600' : dc < 0 ? 'color:var(--red);font-weight:600' : 'color:var(--text-muted)';
+    const dpStyle = dp === null ? 'color:var(--text-muted)' : parseFloat(dp) < 0 ? 'color:var(--green);font-weight:600' : parseFloat(dp) > 0 ? 'color:var(--red);font-weight:600' : 'color:var(--text-muted)';
+
+    return `<tr>
+      <td><span class="page-pill">${label}</span></td>
+      <td style="color:var(--text-primary);font-weight:600">${aClicks.toLocaleString()}</td>
+      <td style="color:var(--text-secondary)">${bClicks.toLocaleString()}</td>
+      <td style="${dcStyle}">${dc > 0 ? '+' : ''}${dc.toLocaleString()}</td>
+      <td>${aPos != null ? posBadge(aPos) : '—'}</td>
+      <td>${bPos != null ? posBadge(bPos) : '—'}</td>
+      <td style="${dpStyle}">${dp !== null ? (parseFloat(dp) > 0 ? '+' : '') + dp : '—'}</td>
+      <td style="color:var(--text-secondary)">${(parseInt(a.impressions) || 0).toLocaleString()}</td>
+      <td style="color:var(--text-secondary)">${(parseInt(b.impressions) || 0).toLocaleString()}</td>
+    </tr>`;
+  }).join('');
+}
 </script>
 </body>
 </html>
