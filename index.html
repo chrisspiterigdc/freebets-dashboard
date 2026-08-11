@@ -1,1 +1,455 @@
-placeholder
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FreeBets.com — SEO Content Dashboard</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+:root {
+--bg-primary: #0d1117;
+--bg-card: #161b22;
+--bg-card-hover: #1c2230;
+--border: #30363d;
+--green: #00c853;
+--green-dim: rgba(0, 200, 83, 0.15);
+--red: #f85149;
+--red-dim: rgba(248, 81, 73, 0.15);
+--yellow: #e3b341;
+--yellow-dim: rgba(227, 179, 65, 0.15);
+--blue: #58a6ff;
+--blue-dim: rgba(88, 166, 255, 0.15);
+--text-primary: #e6edf3;
+--text-secondary: #8b949e;
+--text-muted: #6e7681;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif; background: var(--bg-primary); color: var(--text-primary); line-height: 1.5; }
+.header { background: var(--bg-card); border-bottom: 1px solid var(--border); padding: 1rem 2rem; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; }
+.header-left { display: flex; align-items: center; gap: 1rem; }
+.logo { font-size: 1.5rem; font-weight: 800; color: var(--green); }
+.logo span { color: var(--text-primary); font-weight: 400; }
+.header-date { color: var(--text-secondary); font-size: 0.85rem; }
+.header-badge { background: var(--green-dim); color: var(--green); padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.75rem; font-weight: 600; }
+.header-updated { color: var(--text-muted); font-size: 0.75rem; margin-left: 0.75rem; }
+.nav-tabs { background: var(--bg-card); border-bottom: 1px solid var(--border); padding: 0 2rem; display: flex; }
+.nav-tab { padding: 0.75rem 1.25rem; color: var(--text-secondary); cursor: pointer; font-size: 0.875rem; font-weight: 500; border-bottom: 2px solid transparent; transition: all 0.2s; }
+.nav-tab:hover { color: var(--text-primary); }
+.nav-tab.active { color: var(--green); border-bottom-color: var(--green); }
+.main { padding: 1.5rem 2rem; max-width: 1400px; margin: 0 auto; }
+.section { display: none; }
+.section.active { display: block; }
+.kpi-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 1.5rem; }
+.kpi-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; transition: border-color 0.2s; }
+.kpi-card:hover { border-color: var(--green); }
+.kpi-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.5rem; }
+.kpi-value { font-size: 1.75rem; font-weight: 700; color: var(--text-primary); }
+.kpi-sub { font-size: 0.8rem; color: var(--text-secondary); margin-top: 0.25rem; }
+.chart-row { display: grid; grid-template-columns: 2fr 1fr; gap: 1rem; margin-bottom: 1.5rem; }
+.chart-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; }
+.chart-card h3 { font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1rem; font-weight: 500; }
+.table-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; margin-bottom: 1.5rem; overflow-x: auto; }
+.table-card h3 { font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1rem; font-weight: 500; }
+table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+th { text-align: left; padding: 0.6rem 0.75rem; color: var(--text-muted); font-weight: 600; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.05em; border-bottom: 1px solid var(--border); }
+td { padding: 0.6rem 0.75rem; border-bottom: 1px solid rgba(48, 54, 61, 0.5); color: var(--text-secondary); }
+tr:hover td { background: var(--bg-card-hover); }
+.pos-badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-weight: 600; font-size: 0.8rem; }
+.pos-top3 { background: var(--green-dim); color: var(--green); }
+.pos-top10 { background: var(--blue-dim); color: var(--blue); }
+.pos-top30 { background: var(--yellow-dim); color: var(--yellow); }
+.pos-beyond { background: var(--red-dim); color: var(--red); }
+.url-cell { max-width: 350px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--blue); }
+.loading-state { text-align: center; padding: 3rem 1rem; color: var(--text-muted); font-size: 0.9rem; }
+.error-state { background: var(--red-dim); border: 1px solid var(--red); border-radius: 8px; padding: 1rem 1.25rem; color: var(--red); font-size: 0.85rem; margin-bottom: 1rem; }
+
+/* ===== CORE PAGES TAB ===== */
+.core-cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 1rem; margin-bottom: 1.5rem; }
+.core-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; transition: border-color 0.2s; }
+.core-card:hover { border-color: #444d56; }
+.core-card-header { padding: 1rem 1.1rem 0.75rem; border-bottom: 1px solid var(--border); display: flex; align-items: flex-start; justify-content: space-between; gap: 0.5rem; }
+.core-card-title { font-weight: 700; color: var(--text-primary); font-size: 0.95rem; }
+.core-card-path { font-size: 0.75rem; color: var(--text-muted); margin-top: 0.1rem; font-family: monospace; }
+.core-card-link { font-size: 0.75rem; color: var(--blue); text-decoration: none; white-space: nowrap; padding-top: 0.15rem; }
+.core-card-link:hover { text-decoration: underline; }
+.core-stats-row { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 0; border-bottom: 1px solid var(--border); }
+.core-stat { padding: 0.7rem 0.9rem; border-right: 1px solid var(--border); }
+.core-stat:last-child { border-right: none; }
+.core-stat-label { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.07em; color: var(--text-muted); margin-bottom: 0.25rem; }
+.core-stat-value { font-size: 1.05rem; font-weight: 700; color: var(--text-primary); }
+.core-stat-delta { font-size: 0.7rem; margin-top: 0.1rem; }
+.delta-up { color: var(--green); }
+.delta-down { color: var(--red); }
+.delta-neutral { color: var(--text-muted); }
+.core-sparkline { padding: 0.6rem 1.1rem; border-bottom: 1px solid var(--border); height: 48px; }
+.core-sparkline svg { display: block; width: 100%; height: 36px; }
+.core-movers { padding: 0.6rem 1.1rem 0.9rem; }
+.core-movers-title { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.07em; color: var(--text-muted); margin-bottom: 0.4rem; }
+.core-mover-row { display: flex; align-items: center; gap: 0.5rem; padding: 0.2rem 0; font-size: 0.78rem; }
+.mover-delta { font-weight: 700; min-width: 36px; font-size: 0.8rem; }
+.mover-kw { flex: 1; color: var(--text-secondary); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.mover-pos { color: var(--text-muted); font-size: 0.72rem; white-space: nowrap; }
+.no-data-card { display: flex; align-items: center; justify-content: center; min-height: 160px; color: var(--text-muted); font-size: 0.85rem; }
+
+/* Rankings table filter */
+.core-filter-row { display: flex; gap: 0.5rem; margin-bottom: 1rem; flex-wrap: wrap; align-items: center; }
+.core-filter-btn { padding: 0.3rem 0.8rem; border-radius: 20px; border: 1px solid var(--border); background: transparent; color: var(--text-secondary); font-size: 0.78rem; cursor: pointer; transition: all 0.2s; }
+.core-filter-btn:hover { border-color: var(--green); color: var(--text-primary); }
+.core-filter-btn.active { background: var(--green-dim); border-color: var(--green); color: var(--green); font-weight: 600; }
+.sort-label { font-size: 0.75rem; color: var(--text-muted); margin-left: auto; }
+.page-pill { display: inline-block; padding: 0.1rem 0.5rem; border-radius: 20px; font-size: 0.7rem; font-weight: 600; background: var(--blue-dim); color: var(--blue); white-space: nowrap; }
+.health-badge { display: inline-flex; align-items: center; gap: 0.25rem; padding: 0.15rem 0.5rem; border-radius: 20px; font-size: 0.68rem; font-weight: 600; }
+.health-ok { background: var(--green-dim); color: var(--green); }
+.health-warn { background: var(--yellow-dim); color: var(--yellow); }
+.health-error { background: var(--red-dim); color: var(--red); }
+.health-unknown { background: rgba(110,118,129,0.15); color: var(--text-muted); }
+
+@media (max-width: 900px) { .chart-row { grid-template-columns: 1fr; } .main { padding: 1rem; } .core-cards-grid { grid-template-columns: 1fr; } }
+@media (max-width: 600px) { .kpi-row { grid-template-columns: repeat(2, 1fr); } .core-stats-row { grid-template-columns: 1fr 1fr; } .core-stat:nth-child(2) { border-right: none; } }
+</style>
+</head>
+<body>
+
+<header class="header">
+<div class="header-left">
+<div class="logo">FreeBets<span>.com</span></div>
+<span class="header-badge">SEO Content Dashboard</span>
+</div>
+<div>
+<span class="header-date" id="headerDate">Loading…</span>
+<span class="header-updated" id="headerUpdated"></span>
+</div>
+</header>
+
+<nav class="nav-tabs">
+<div class="nav-tab active" data-tab="seo">SEO &amp; Traffic</div>
+<div class="nav-tab" data-tab="core">Core Pages</div>
+</nav>
+
+<main class="main">
+
+<!-- ===================== SEO & TRAFFIC ===================== -->
+<section id="seo" class="section active">
+<div id="seoError"></div>
+<div class="kpi-row" id="seoKpiRow"><div class="loading-state">Loading SEO data…</div></div>
+<div class="chart-row">
+<div class="chart-card"><h3>Daily Sessions (Last 30 Days)</h3><canvas id="sessionsChart" height="100"></canvas></div>
+<div class="chart-card"><h3>Traffic by Channel</h3><canvas id="channelChart" height="200"></canvas></div>
+</div>
+<div class="table-card">
+<h3>Top Search Queries (GSC – UK, Last 30 Days)</h3>
+<table><thead><tr><th>Query</th><th>Clicks</th><th>Impressions</th><th>CTR</th><th>Avg Position</th></tr></thead><tbody id="queriesTable"></tbody></table>
+</div>
+<div class="table-card">
+<h3>Top Pages (GSC – UK, Last 30 Days)</h3>
+<table><thead><tr><th>Page</th><th>Clicks</th><th>Impressions</th><th>CTR</th><th>Avg Position</th></tr></thead><tbody id="pagesTable"></tbody></table>
+</div>
+</section>
+
+<!-- ===================== CORE PAGES ===================== -->
+<section id="core" class="section">
+<div id="coreError"></div>
+<div class="kpi-row" id="coreKpiRow"><div class="loading-state">Loading core pages data…</div></div>
+<div class="core-cards-grid" id="coreCards"></div>
+<div class="table-card">
+<h3>All Keywords — Core Pages</h3>
+<div class="core-filter-row" id="coreFilters"></div>
+<table>
+<thead><tr><th>Page</th><th>Keyword</th><th>Position</th><th>7d Change</th><th>Clicks</th><th>CTR</th></tr></thead>
+<tbody id="coreKwTable"></tbody>
+</table>
+</div>
+</section>
+
+</main>
+
+<script>
+const CACHE_BUSTER = '?t=' + Date.now();
+
+function loadJSON(path) {
+  return fetch(path + CACHE_BUSTER).then(r => { if (!r.ok) throw new Error(`HTTP ${r.status}`); return r.json(); }).catch(() => null);
+}
+
+function showError(id, msg) {
+  const el = document.getElementById(id);
+  if (el) el.innerHTML = `<div class="error-state">⚠ ${msg}</div>`;
+}
+
+// Tab switching
+document.querySelectorAll('.nav-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    tab.classList.add('active');
+    document.getElementById(tab.dataset.tab).classList.add('active');
+  });
+});
+
+function posBadge(pos) {
+  if (pos <= 3)  return `<span class="pos-badge pos-top3">${pos.toFixed(1)}</span>`;
+  if (pos <= 10) return `<span class="pos-badge pos-top10">${pos.toFixed(1)}</span>`;
+  if (pos <= 30) return `<span class="pos-badge pos-top30">${pos.toFixed(1)}</span>`;
+  return `<span class="pos-badge pos-beyond">${pos.toFixed(1)}</span>`;
+}
+
+// ========== SEO & TRAFFIC ==========
+function renderSEO(data) {
+  if (!data) { showError('seoError', 'Could not load SEO data. Try refreshing.'); return; }
+  document.getElementById('headerDate').textContent = `Data: ${data.dateRange}`;
+  if (data.lastUpdated) document.getElementById('headerUpdated').textContent = `Updated: ${data.lastUpdated}`;
+
+  const kpis = data.kpis || {};
+  document.getElementById('seoKpiRow').innerHTML = `
+    <div class="kpi-card"><div class="kpi-label">Total Sessions (30d)</div><div class="kpi-value">${(kpis.totalSessions||0).toLocaleString()}</div><div class="kpi-sub">Avg ${Math.round((kpis.totalSessions||0)/30).toLocaleString()}/day</div></div>
+    <div class="kpi-card"><div class="kpi-label">Organic Sessions</div><div class="kpi-value">${(kpis.organicSessions||0).toLocaleString()}</div><div class="kpi-sub">${kpis.totalSessions ? ((kpis.organicSessions/kpis.totalSessions)*100).toFixed(1) : 0}% of total</div></div>
+    <div class="kpi-card"><div class="kpi-label">Ahrefs Organic Traffic</div><div class="kpi-value">${(kpis.ahrefsOrganicTraffic||0).toLocaleString()}</div><div class="kpi-sub">Est. monthly organic visits</div></div>
+    <div class="kpi-card"><div class="kpi-label">Domain Rating</div><div class="kpi-value">${kpis.domainRating||0}</div><div class="kpi-sub">Ahrefs rank #${(kpis.ahrefsRank||0).toLocaleString()}</div></div>
+    <div class="kpi-card"><div class="kpi-label">Ranking Keywords</div><div class="kpi-value">${(kpis.rankingKeywords||0).toLocaleString()}</div><div class="kpi-sub">${kpis.keywordsTop3||0} in top 3</div></div>
+    <div class="kpi-card"><div class="kpi-label">Avg Bounce Rate</div><div class="kpi-value">${kpis.avgBounceRate ? kpis.avgBounceRate.toFixed(1)+'%' : '0%'}</div><div class="kpi-sub">30-day average</div></div>`;
+
+  const sd = data.dailySessions || [];
+  new Chart(document.getElementById('sessionsChart'), {
+    type: 'line',
+    data: { labels: sd.map(d => d.date), datasets: [{ label: 'Sessions', data: sd.map(d => d.value), borderColor: '#00c853', backgroundColor: 'rgba(0,200,83,0.1)', fill: true, tension: 0.3, pointRadius: 2, pointHoverRadius: 5, borderWidth: 2 }] },
+    options: { responsive: true, plugins: { legend: { display: false }, tooltip: { backgroundColor: '#161b22', titleColor: '#e6edf3', bodyColor: '#8b949e', borderColor: '#30363d', borderWidth: 1 } }, scales: { x: { ticks: { color: '#6e7681', maxRotation: 45, font: { size: 10 } }, grid: { color: 'rgba(48,54,61,0.3)' } }, y: { ticks: { color: '#6e7681', font: { size: 10 } }, grid: { color: 'rgba(48,54,61,0.3)' } } } }
+  });
+
+  const ch = data.channels || [];
+  new Chart(document.getElementById('channelChart'), {
+    type: 'doughnut',
+    data: { labels: ch.map(c => c.name), datasets: [{ data: ch.map(c => c.sessions), backgroundColor: ch.map(c => c.color), borderColor: '#161b22', borderWidth: 3 }] },
+    options: { responsive: true, plugins: { legend: { position: 'bottom', labels: { color: '#8b949e', padding: 12, font: { size: 11 } } } } }
+  });
+
+  const qt = document.getElementById('queriesTable');
+  (data.topQueries || []).sort((a,b) => b.clicks - a.clicks).forEach(q => {
+    qt.innerHTML += `<tr><td style="color:var(--text-primary);font-weight:500;">${q.query}</td><td style="color:var(--text-primary);font-weight:600;">${q.clicks.toLocaleString()}</td><td>${q.impressions.toLocaleString()}</td><td>${q.ctr.toFixed(1)}%</td><td>${posBadge(q.position)}</td></tr>`;
+  });
+
+  const pt = document.getElementById('pagesTable');
+  (data.topPages || []).forEach(p => {
+    pt.innerHTML += `<tr><td class="url-cell" title="${p.url}">${p.url}</td><td style="color:var(--text-primary);font-weight:600;">${p.clicks.toLocaleString()}</td><td>${p.impressions.toLocaleString()}</td><td>${p.ctr.toFixed(1)}%</td><td>${posBadge(p.position)}</td></tr>`;
+  });
+}
+
+// ========== CORE PAGES ==========
+function sparkline(trend, key) {
+  if (!trend || trend.length < 2) return '';
+  const vals = trend.map(t => t.clicks || 0);
+  const min = Math.min(...vals), max = Math.max(...vals);
+  const range = max - min || 1;
+  const W = 300, H = 36;
+  const pts = vals.map((v, i) => {
+    const x = (i / (vals.length - 1)) * W;
+    const y = H - 2 - ((v - min) / range) * (H - 6);
+    return `${x.toFixed(1)},${y.toFixed(1)}`;
+  }).join(' ');
+  const fillPts = `${pts} ${W},${H} 0,${H}`;
+  return `<svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <defs><linearGradient id="sg${key}" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#00c853" stop-opacity="0.3"/><stop offset="100%" stop-color="#00c853" stop-opacity="0"/></linearGradient></defs>
+    <polygon points="${fillPts}" fill="url(#sg${key})"/>
+    <polyline points="${pts}" fill="none" stroke="#00c853" stroke-width="1.5" stroke-linejoin="round"/>
+  </svg>`;
+}
+
+function deltaHtml(val, inverse) {
+  if (val === null || val === undefined) return '<span class="delta-neutral">—</span>';
+  const good = inverse ? val < 0 : val > 0;
+  const cls = val === 0 ? 'delta-neutral' : good ? 'delta-up' : 'delta-down';
+  const sign = val > 0 ? '+' : '';
+  return `<span class="${cls}">${sign}${val}</span>`;
+}
+
+function deltaPosFmt(delta) {
+  if (delta === null || delta === undefined) return '<span class="delta-neutral">—</span>';
+  const good = delta > 0;
+  const cls = delta === 0 ? 'delta-neutral' : good ? 'delta-up' : 'delta-down';
+  const arrow = delta > 0 ? '↑' : '↓';
+  return `<span class="${cls}">${arrow}${Math.abs(delta).toFixed(1)}</span>`;
+}
+
+let CORE_DATA = null;
+let activePageFilter = 'all';
+
+function renderCoreCards() {
+  if (!CORE_DATA) return;
+  const pages = CORE_DATA.pages || [];
+  const grid = document.getElementById('coreCards');
+  grid.innerHTML = '';
+
+  // Summary KPIs
+  const active = pages.filter(p => p.current && p.current.clicks);
+  const totalClicks = active.reduce((s, p) => s + (p.current.clicks || 0), 0);
+  const totalImpressions = active.reduce((s, p) => s + (p.current.impressions || 0), 0);
+  const totalKws = active.reduce((s, p) => s + (p.current.keywordCount || 0), 0);
+  const totalTop10 = active.reduce((s, p) => s + (p.current.top10 || 0), 0);
+  const vs7dClicks = active.reduce((s, p) => s + (p.vs7d && p.vs7d.clicksDelta != null ? p.vs7d.clicksDelta : 0), 0);
+
+  document.getElementById('coreKpiRow').innerHTML = `
+    <div class="kpi-card"><div class="kpi-label">Total Clicks</div><div class="kpi-value" style="color:var(--green)">${totalClicks.toLocaleString()}</div><div class="kpi-sub">${deltaHtml(vs7dClicks, false)} vs 7 days ago</div></div>
+    <div class="kpi-card"><div class="kpi-label">Total Impressions</div><div class="kpi-value">${totalImpressions.toLocaleString()}</div><div class="kpi-sub">Across ${active.length} active pages</div></div>
+    <div class="kpi-card"><div class="kpi-label">Keywords Tracked</div><div class="kpi-value">${totalKws.toLocaleString()}</div><div class="kpi-sub">${totalTop10} in top 10</div></div>
+    <div class="kpi-card"><div class="kpi-label">Pages Monitored</div><div class="kpi-value">${pages.length}</div><div class="kpi-sub">${active.length} with GSC data</div></div>`;
+
+  // Page cards
+  pages.forEach((page, i) => {
+    const cur = page.current || {};
+    const vs7 = page.vs7d || {};
+    const movers = (page.movers || []).slice(0, 4);
+    const hasData = cur.clicks !== undefined;
+    const health = page.health || {};
+
+    let healthHtml = '';
+    if (health.lastChecked) {
+      const cls = health.status === 200 ? 'health-ok' : health.status >= 400 ? 'health-error' : 'health-warn';
+      const label = health.status === 200 ? '● Live' : `● ${health.status}`;
+      healthHtml = `<span class="health-badge ${cls}">${label}</span>`;
+    } else {
+      healthHtml = `<span class="health-badge health-unknown">● Unchecked</span>`;
+    }
+
+    const moversHtml = movers.length
+      ? movers.map(m => {
+          const cls = m.delta > 0 ? 'delta-up' : 'delta-down';
+          const arrow = m.delta > 0 ? '↑' : '↓';
+          return `<div class="core-mover-row">
+            <span class="mover-delta ${cls}">${arrow}${Math.abs(m.delta).toFixed(0)}</span>
+            <span class="mover-kw" title="${m.keyword}">${m.keyword}</span>
+            <span class="mover-pos">pos ${m.position}</span>
+          </div>`;
+        }).join('')
+      : `<div style="color:var(--text-muted);font-size:0.78rem;">No position data yet</div>`;
+
+    const statsHtml = hasData ? `
+      <div class="core-stats-row">
+        <div class="core-stat">
+          <div class="core-stat-label">Clicks</div>
+          <div class="core-stat-value">${cur.clicks.toLocaleString()}</div>
+          <div class="core-stat-delta">${deltaHtml(vs7.clicksDelta, false)}</div>
+        </div>
+        <div class="core-stat">
+          <div class="core-stat-label">Impressions</div>
+          <div class="core-stat-value">${(cur.impressions||0).toLocaleString()}</div>
+          <div class="core-stat-delta">${deltaHtml(vs7.impressionsDelta, false)}</div>
+        </div>
+        <div class="core-stat">
+          <div class="core-stat-label">Avg Pos</div>
+          <div class="core-stat-value">${cur.avgPosition || '—'}</div>
+          <div class="core-stat-delta">${deltaPosFmt(vs7.positionDelta)}</div>
+        </div>
+        <div class="core-stat">
+          <div class="core-stat-label">Top 10</div>
+          <div class="core-stat-value">${cur.top10 || 0}</div>
+          <div class="core-stat-delta" style="color:var(--text-muted);font-size:0.7rem;">of ${cur.keywordCount||0} kws</div>
+        </div>
+      </div>
+      <div class="core-sparkline">${sparkline(page.trend, i)}</div>` :
+      `<div class="no-data-card">No GSC data yet — add to tracking</div>`;
+
+    grid.innerHTML += `
+      <div class="core-card">
+        <div class="core-card-header">
+          <div>
+            <div class="core-card-title">${page.label}</div>
+            <div class="core-card-path">${page.path}</div>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:flex-end;gap:0.3rem;">
+            ${healthHtml}
+            <a class="core-card-link" href="https://www.freebets.com${page.path}" target="_blank" rel="noopener">View ↗</a>
+          </div>
+        </div>
+        ${statsHtml}
+        <div class="core-movers">
+          <div class="core-movers-title">Top movers vs 7 days</div>
+          ${moversHtml}
+        </div>
+      </div>`;
+  });
+}
+
+function renderCoreTable(filter) {
+  if (!CORE_DATA) return;
+  const pages = CORE_DATA.pages || [];
+  const tbody = document.getElementById('coreKwTable');
+
+  // Build mover lookup for delta display
+  const moverMap = {};
+  pages.forEach(p => {
+    (p.movers || []).forEach(m => {
+      moverMap[`${p.key}::${m.keyword}`] = m.delta;
+    });
+  });
+
+  tbody.innerHTML = '';
+  let count = 0;
+
+  pages.forEach(page => {
+    if (filter !== 'all' && page.key !== filter) return;
+    (page.topKeywords || []).forEach(kw => {
+      const delta = moverMap[`${page.key}::${kw.keyword}`];
+      const deltaCell = delta !== undefined
+        ? `<span class="${delta > 0 ? 'delta-up' : delta < 0 ? 'delta-down' : 'delta-neutral'}">${delta > 0 ? '↑' : '↓'}${Math.abs(delta).toFixed(0)}</span>`
+        : '<span class="delta-neutral">—</span>';
+      tbody.innerHTML += `<tr>
+        <td><span class="page-pill">${page.label}</span></td>
+        <td style="color:var(--text-primary)">${kw.keyword}</td>
+        <td>${posBadge(kw.position)}</td>
+        <td>${deltaCell}</td>
+        <td style="color:var(--text-primary);font-weight:600">${kw.clicks.toLocaleString()}</td>
+        <td>${kw.ctr.toFixed(1)}%</td>
+      </tr>`;
+      count++;
+    });
+  });
+
+  if (!count) tbody.innerHTML = `<tr><td colspan="6" style="text-align:center;color:var(--text-muted);padding:2rem">No keywords for this page yet.</td></tr>`;
+}
+
+function setupCoreFilters() {
+  if (!CORE_DATA) return;
+  const container = document.getElementById('coreFilters');
+  const pages = CORE_DATA.pages || [];
+
+  const all = document.createElement('button');
+  all.className = 'core-filter-btn active';
+  all.textContent = 'All pages';
+  all.dataset.filter = 'all';
+  container.appendChild(all);
+
+  pages.forEach(p => {
+    const btn = document.createElement('button');
+    btn.className = 'core-filter-btn';
+    btn.textContent = p.label;
+    btn.dataset.filter = p.key;
+    container.appendChild(btn);
+  });
+
+  container.querySelectorAll('.core-filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      container.querySelectorAll('.core-filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      renderCoreTable(btn.dataset.filter);
+    });
+  });
+}
+
+function renderCorePages(data) {
+  if (!data) { showError('coreError', 'Could not load core pages data. Try refreshing.'); return; }
+  CORE_DATA = data;
+  renderCoreCards();
+  setupCoreFilters();
+  renderCoreTable('all');
+}
+
+// ========== INIT ==========
+(async function init() {
+  const [seo, core] = await Promise.all([
+    loadJSON('data/seo.json'),
+    loadJSON('data/core-pages.json'),
+  ]);
+  renderSEO(seo);
+  renderCorePages(core);
+})();
+</script>
+</body>
+</html>
