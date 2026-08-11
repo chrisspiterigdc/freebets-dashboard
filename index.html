@@ -106,9 +106,43 @@ tr:hover td { background: var(--bg-card-hover); }
 .task-wrapper { display: flex; flex-direction: column; }
 .loading-state { text-align: center; padding: 3rem 1rem; color: var(--text-muted); font-size: 0.9rem; }
 .error-state { background: var(--red-dim); border: 1px solid var(--red); border-radius: 8px; padding: 1rem 1.25rem; color: var(--red); font-size: 0.85rem; margin-bottom: 1rem; }
-@media (max-width: 700px) { .task-row { flex-wrap: wrap; } .task-promo-list ul { columns: 1; } }
-@media (max-width: 900px) { .chart-row { grid-template-columns: 1fr; } .main { padding: 1rem; } }
-@media (max-width: 600px) { .kpi-row { grid-template-columns: repeat(2, 1fr); } }
+
+/* ===== CORE PAGES TAB ===== */
+.core-cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 1rem; margin-bottom: 1.5rem; }
+.core-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; transition: border-color 0.2s; }
+.core-card:hover { border-color: #444d56; }
+.core-card-header { padding: 1rem 1.1rem 0.75rem; border-bottom: 1px solid var(--border); display: flex; align-items: flex-start; justify-content: space-between; gap: 0.5rem; }
+.core-card-title { font-weight: 700; color: var(--text-primary); font-size: 0.95rem; }
+.core-card-path { font-size: 0.75rem; color: var(--text-muted); margin-top: 0.1rem; font-family: monospace; }
+.core-card-link { font-size: 0.75rem; color: var(--blue); text-decoration: none; white-space: nowrap; padding-top: 0.15rem; }
+.core-card-link:hover { text-decoration: underline; }
+.core-stats-row { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 0; border-bottom: 1px solid var(--border); }
+.core-stat { padding: 0.7rem 0.9rem; border-right: 1px solid var(--border); }
+.core-stat:last-child { border-right: none; }
+.core-stat-label { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.07em; color: var(--text-muted); margin-bottom: 0.25rem; }
+.core-stat-value { font-size: 1.05rem; font-weight: 700; color: var(--text-primary); }
+.core-stat-delta { font-size: 0.7rem; margin-top: 0.1rem; }
+.delta-up { color: var(--green); }
+.delta-down { color: var(--red); }
+.delta-neutral { color: var(--text-muted); }
+.core-sparkline { padding: 0.6rem 1.1rem; border-bottom: 1px solid var(--border); height: 48px; }
+.core-sparkline svg { display: block; width: 100%; height: 36px; }
+.core-movers { padding: 0.6rem 1.1rem 0.9rem; }
+.core-movers-title { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.07em; color: var(--text-muted); margin-bottom: 0.4rem; }
+.core-mover-row { display: flex; align-items: center; gap: 0.5rem; padding: 0.2rem 0; font-size: 0.78rem; }
+.mover-delta { font-weight: 700; min-width: 36px; font-size: 0.8rem; }
+.mover-kw { flex: 1; color: var(--text-secondary); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.mover-pos { color: var(--text-muted); font-size: 0.72rem; white-space: nowrap; }
+.no-data-card { display: flex; align-items: center; justify-content: center; min-height: 160px; color: var(--text-muted); font-size: 0.85rem; }
+.core-filter-row { display: flex; gap: 0.5rem; margin-bottom: 1rem; flex-wrap: wrap; align-items: center; }
+.core-filter-btn { padding: 0.3rem 0.8rem; border-radius: 20px; border: 1px solid var(--border); background: transparent; color: var(--text-secondary); font-size: 0.78rem; cursor: pointer; transition: all 0.2s; }
+.core-filter-btn:hover { border-color: var(--green); color: var(--text-primary); }
+.core-filter-btn.active { background: var(--green-dim); border-color: var(--green); color: var(--green); font-weight: 600; }
+.health-badge { display: inline-flex; align-items: center; gap: 0.25rem; padding: 0.15rem 0.5rem; border-radius: 20px; font-size: 0.68rem; font-weight: 600; }
+.health-ok { background: var(--green-dim); color: var(--green); }
+.health-warn { background: var(--yellow-dim); color: var(--yellow); }
+.health-error { background: var(--red-dim); color: var(--red); }
+.health-unknown { background: rgba(110,118,129,0.15); color: var(--text-muted); }
 
 /* ===== HISTORY MODAL ===== */
 .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.75); display: flex; align-items: center; justify-content: center; z-index: 200; }
@@ -145,6 +179,10 @@ tr:hover td { background: var(--bg-card-hover); }
 .preset-btns { display: flex; gap: 0.4rem; flex-wrap: wrap; }
 .compare-run-btn { background: var(--green); color: #000; border: none; border-radius: 8px; padding: 0.6rem 1.5rem; font-weight: 700; cursor: pointer; font-size: 0.875rem; align-self: flex-end; }
 .compare-run-btn:hover { opacity: 0.9; }
+
+@media (max-width: 700px) { .task-row { flex-wrap: wrap; } .task-promo-list ul { columns: 1; } }
+@media (max-width: 900px) { .chart-row { grid-template-columns: 1fr; } .main { padding: 1rem; } .core-cards-grid { grid-template-columns: 1fr; } }
+@media (max-width: 600px) { .kpi-row { grid-template-columns: repeat(2, 1fr); } .core-stats-row { grid-template-columns: 1fr 1fr; } .core-stat:nth-child(2) { border-right: none; } }
 </style>
 </head>
 <body>
@@ -161,7 +199,8 @@ tr:hover td { background: var(--bg-card-hover); }
 </header>
 
 <nav class="nav-tabs">
-<div class="nav-tab active" data-tab="seo">SEO & Traffic</div>
+<div class="nav-tab active" data-tab="seo">SEO &amp; Traffic</div>
+<div class="nav-tab" data-tab="core">Core Pages</div>
 <div class="nav-tab" data-tab="rank">Keyword Tracker</div>
 <div class="nav-tab" data-tab="promos">Partner Promotions</div>
 <div class="nav-tab" data-tab="kwdb">All Keywords</div>
@@ -198,6 +237,21 @@ tr:hover td { background: var(--bg-card-hover); }
 <table>
 <thead><tr><th>Page</th><th>Clicks</th><th>Impressions</th><th>CTR</th><th>Avg Position</th></tr></thead>
 <tbody id="pagesTable"></tbody>
+</table>
+</div>
+</section>
+
+<!-- ===================== CORE PAGES ===================== -->
+<section id="core" class="section">
+<div id="coreError"></div>
+<div class="kpi-row" id="coreKpiRow"><div class="loading-state">Loading core pages data…</div></div>
+<div class="core-cards-grid" id="coreCards"></div>
+<div class="table-card">
+<h3>All Keywords — Core Pages</h3>
+<div class="core-filter-row" id="coreFilters"></div>
+<table>
+<thead><tr><th>Page</th><th>Keyword</th><th>Position</th><th>7d Change</th><th>Clicks</th><th>CTR</th></tr></thead>
+<tbody id="coreKwTable"></tbody>
 </table>
 </div>
 </section>
@@ -421,6 +475,162 @@ function renderSEO(data) {
   });
 }
 
+// ========== CORE PAGES ==========
+function sparkline(trend, key) {
+  if (!trend || trend.length < 2) return '';
+  const vals = trend.map(t => t.clicks || 0);
+  const min = Math.min(...vals), max = Math.max(...vals);
+  const range = max - min || 1;
+  const W = 300, H = 36;
+  const pts = vals.map((v, i) => {
+    const x = (i / (vals.length - 1)) * W;
+    const y = H - 2 - ((v - min) / range) * (H - 6);
+    return `${x.toFixed(1)},${y.toFixed(1)}`;
+  }).join(' ');
+  const fillPts = `${pts} ${W},${H} 0,${H}`;
+  return `<svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <defs><linearGradient id="sg${key}" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#00c853" stop-opacity="0.3"/><stop offset="100%" stop-color="#00c853" stop-opacity="0"/></linearGradient></defs>
+    <polygon points="${fillPts}" fill="url(#sg${key})"/>
+    <polyline points="${pts}" fill="none" stroke="#00c853" stroke-width="1.5" stroke-linejoin="round"/>
+  </svg>`;
+}
+
+function deltaHtml(val, inverse) {
+  if (val === null || val === undefined) return '<span class="delta-neutral">—</span>';
+  const good = inverse ? val < 0 : val > 0;
+  const cls = val === 0 ? 'delta-neutral' : good ? 'delta-up' : 'delta-down';
+  const sign = val > 0 ? '+' : '';
+  return `<span class="${cls}">${sign}${val}</span>`;
+}
+
+function deltaPosFmt(delta) {
+  if (delta === null || delta === undefined) return '<span class="delta-neutral">—</span>';
+  const cls = delta === 0 ? 'delta-neutral' : delta > 0 ? 'delta-up' : 'delta-down';
+  const arrow = delta > 0 ? '↑' : '↓';
+  return `<span class="${cls}">${arrow}${Math.abs(delta).toFixed(1)}</span>`;
+}
+
+let CORE_DATA = null;
+
+function renderCoreCards() {
+  if (!CORE_DATA) return;
+  const pages = CORE_DATA.pages || [];
+  const grid = document.getElementById('coreCards');
+  grid.innerHTML = '';
+
+  const active = pages.filter(p => p.current && p.current.clicks);
+  const totalClicks = active.reduce((s, p) => s + (p.current.clicks || 0), 0);
+  const totalImpressions = active.reduce((s, p) => s + (p.current.impressions || 0), 0);
+  const totalKws = active.reduce((s, p) => s + (p.current.keywordCount || 0), 0);
+  const totalTop10 = active.reduce((s, p) => s + (p.current.top10 || 0), 0);
+  const vs7dClicks = active.reduce((s, p) => s + (p.vs7d && p.vs7d.clicksDelta != null ? p.vs7d.clicksDelta : 0), 0);
+
+  document.getElementById('coreKpiRow').innerHTML = `
+    <div class="kpi-card"><div class="kpi-label">Total Clicks</div><div class="kpi-value" style="color:var(--green)">${totalClicks.toLocaleString()}</div><div class="kpi-sub">${deltaHtml(vs7dClicks, false)} vs 7 days ago</div></div>
+    <div class="kpi-card"><div class="kpi-label">Total Impressions</div><div class="kpi-value">${totalImpressions.toLocaleString()}</div><div class="kpi-sub">Across ${active.length} active pages</div></div>
+    <div class="kpi-card"><div class="kpi-label">Keywords Tracked</div><div class="kpi-value">${totalKws.toLocaleString()}</div><div class="kpi-sub">${totalTop10} in top 10</div></div>
+    <div class="kpi-card"><div class="kpi-label">Pages Monitored</div><div class="kpi-value">${pages.length}</div><div class="kpi-sub">${active.length} with GSC data</div></div>`;
+
+  pages.forEach((page, i) => {
+    const cur = page.current || {};
+    const vs7 = page.vs7d || {};
+    const movers = (page.movers || []).slice(0, 4);
+    const hasData = cur.clicks !== undefined;
+    const health = page.health || {};
+
+    let healthHtml = health.lastChecked
+      ? `<span class="health-badge ${health.status === 200 ? 'health-ok' : health.status >= 400 ? 'health-error' : 'health-warn'}">● ${health.status === 200 ? 'Live' : health.status}</span>`
+      : `<span class="health-badge health-unknown">● Unchecked</span>`;
+
+    const moversHtml = movers.length
+      ? movers.map(m => `<div class="core-mover-row">
+          <span class="mover-delta ${m.delta > 0 ? 'delta-up' : 'delta-down'}">${m.delta > 0 ? '↑' : '↓'}${Math.abs(m.delta).toFixed(0)}</span>
+          <span class="mover-kw" title="${m.keyword}">${m.keyword}</span>
+          <span class="mover-pos">pos ${m.position}</span>
+        </div>`).join('')
+      : `<div style="color:var(--text-muted);font-size:0.78rem;">No position data yet</div>`;
+
+    const statsHtml = hasData ? `
+      <div class="core-stats-row">
+        <div class="core-stat"><div class="core-stat-label">Clicks</div><div class="core-stat-value">${cur.clicks.toLocaleString()}</div><div class="core-stat-delta">${deltaHtml(vs7.clicksDelta, false)}</div></div>
+        <div class="core-stat"><div class="core-stat-label">Impressions</div><div class="core-stat-value">${(cur.impressions||0).toLocaleString()}</div><div class="core-stat-delta">${deltaHtml(vs7.impressionsDelta, false)}</div></div>
+        <div class="core-stat"><div class="core-stat-label">Avg Pos</div><div class="core-stat-value">${cur.avgPosition || '—'}</div><div class="core-stat-delta">${deltaPosFmt(vs7.positionDelta)}</div></div>
+        <div class="core-stat"><div class="core-stat-label">Top 10</div><div class="core-stat-value">${cur.top10 || 0}</div><div class="core-stat-delta" style="color:var(--text-muted);font-size:0.7rem;">of ${cur.keywordCount||0} kws</div></div>
+      </div>
+      <div class="core-sparkline">${sparkline(page.trend, i)}</div>`
+      : `<div class="no-data-card">No GSC data yet — add to tracking</div>`;
+
+    grid.innerHTML += `
+      <div class="core-card">
+        <div class="core-card-header">
+          <div><div class="core-card-title">${page.label}</div><div class="core-card-path">${page.path}</div></div>
+          <div style="display:flex;flex-direction:column;align-items:flex-end;gap:0.3rem;">
+            ${healthHtml}
+            <a class="core-card-link" href="https://www.freebets.com${page.path}" target="_blank" rel="noopener">View ↗</a>
+          </div>
+        </div>
+        ${statsHtml}
+        <div class="core-movers"><div class="core-movers-title">Top movers vs 7 days</div>${moversHtml}</div>
+      </div>`;
+  });
+}
+
+function renderCoreTable(filter) {
+  if (!CORE_DATA) return;
+  const pages = CORE_DATA.pages || [];
+  const tbody = document.getElementById('coreKwTable');
+  const moverMap = {};
+  pages.forEach(p => { (p.movers || []).forEach(m => { moverMap[`${p.key}::${m.keyword}`] = m.delta; }); });
+
+  tbody.innerHTML = '';
+  let count = 0;
+  pages.forEach(page => {
+    if (filter !== 'all' && page.key !== filter) return;
+    (page.topKeywords || []).forEach(kw => {
+      const delta = moverMap[`${page.key}::${kw.keyword}`];
+      const deltaCell = delta !== undefined
+        ? `<span class="${delta > 0 ? 'delta-up' : delta < 0 ? 'delta-down' : 'delta-neutral'}">${delta > 0 ? '↑' : '↓'}${Math.abs(delta).toFixed(0)}</span>`
+        : '<span class="delta-neutral">—</span>';
+      tbody.innerHTML += `<tr><td><span class="page-pill">${page.label}</span></td><td style="color:var(--text-primary)">${kw.keyword}</td><td>${posBadge(kw.position)}</td><td>${deltaCell}</td><td style="color:var(--text-primary);font-weight:600">${kw.clicks.toLocaleString()}</td><td>${kw.ctr.toFixed(1)}%</td></tr>`;
+      count++;
+    });
+  });
+  if (!count) tbody.innerHTML = `<tr><td colspan="6" style="text-align:center;color:var(--text-muted);padding:2rem">No keywords for this page yet.</td></tr>`;
+}
+
+function setupCoreFilters() {
+  if (!CORE_DATA) return;
+  const container = document.getElementById('coreFilters');
+  const pages = CORE_DATA.pages || [];
+  const all = document.createElement('button');
+  all.className = 'core-filter-btn active';
+  all.textContent = 'All pages';
+  all.dataset.filter = 'all';
+  container.appendChild(all);
+  pages.forEach(p => {
+    const btn = document.createElement('button');
+    btn.className = 'core-filter-btn';
+    btn.textContent = p.label;
+    btn.dataset.filter = p.key;
+    container.appendChild(btn);
+  });
+  container.querySelectorAll('.core-filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      container.querySelectorAll('.core-filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      renderCoreTable(btn.dataset.filter);
+    });
+  });
+}
+
+function renderCorePages(data) {
+  if (!data) { showError('coreError', 'Could not load core pages data. Try refreshing.'); return; }
+  CORE_DATA = data;
+  renderCoreCards();
+  setupCoreFilters();
+  renderCoreTable('all');
+}
+
 // ========== KEYWORD TRACKER ==========
 function renderKeywordTable(pageKey) {
   if (!KW_DATA || !KW_DATA[pageKey]) return;
@@ -554,8 +764,9 @@ function setupPromoFilters() {
 
 // ========== INIT ==========
 (async function init() {
-  const [seo, keywords, promos] = await Promise.all([
+  const [seo, core, keywords, promos] = await Promise.all([
     loadJSON('data/seo.json'),
+    loadJSON('data/core-pages.json'),
     loadJSON('data/keywords.json'),
     loadJSON('data/promos.json')
   ]);
@@ -564,6 +775,7 @@ function setupPromoFilters() {
   PROMO_DATA = promos;
 
   renderSEO(seo);
+  renderCorePages(core);
   renderKeywords(keywords);
   setupPromoFilters();
   renderPromos('all');
@@ -586,7 +798,7 @@ let kwdbAllRows = [];
 let kwdbActiveFilter = 'all';
 
 document.querySelector('[data-tab="kwdb"]').addEventListener('click', () => {
-  if (!kwdbLoaded) { kwdbLoaded = true; loadKwdbTab('all'); }
+  if (!kwdbLoaded) { kwdbLoaded = true; loadKwdbTab(); }
 });
 
 document.querySelectorAll('#kwdbFilters .db-filter-btn').forEach(btn => {
