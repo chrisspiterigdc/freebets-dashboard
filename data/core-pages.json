@@ -1,0 +1,1455 @@
+{
+  "lastUpdated": "2026-08-11",
+  "dataDate": "2026-08-07",
+  "pages": [
+    {
+      "path": "/",
+      "key": "home",
+      "label": "Home",
+      "current": {
+        "clicks": 1551,
+        "impressions": 23480,
+        "avgPosition": 7.9,
+        "ctr": 6.61,
+        "keywordCount": 50,
+        "top10": 34,
+        "top3": 8
+      },
+      "vs7d": {
+        "clicksDelta": -448,
+        "impressionsDelta": -3926,
+        "positionDelta": -1.0
+      },
+      "vs30d": {
+        "clicksDelta": -466,
+        "positionDelta": -0.8
+      },
+      "movers": [
+        {
+          "keyword": "betting sites uk",
+          "position": 22.9,
+          "prevPosition": 28.0,
+          "delta": 5.1,
+          "clicks": 6
+        },
+        {
+          "keyword": "betting sites",
+          "position": 22.4,
+          "prevPosition": 25.1,
+          "delta": 2.7,
+          "clicks": 49
+        },
+        {
+          "keyword": "free bet offers",
+          "position": 6.8,
+          "prevPosition": 8.8,
+          "delta": 2.0,
+          "clicks": 77
+        },
+        {
+          "keyword": "bet sites",
+          "position": 21.3,
+          "prevPosition": 19.6,
+          "delta": -1.7,
+          "clicks": 6
+        },
+        {
+          "keyword": "bet 10 get 50",
+          "position": 8.0,
+          "prevPosition": 9.5,
+          "delta": 1.5,
+          "clicks": 4
+        },
+        {
+          "keyword": "free bet",
+          "position": 14.4,
+          "prevPosition": 13.1,
+          "delta": -1.3,
+          "clicks": 18
+        },
+        {
+          "keyword": "bookmakers free bets",
+          "position": 7.6,
+          "prevPosition": 6.4,
+          "delta": -1.2,
+          "clicks": 3
+        },
+        {
+          "keyword": "new betting sites",
+          "position": 10.0,
+          "prevPosition": 8.9,
+          "delta": -1.1,
+          "clicks": 19
+        },
+        {
+          "keyword": "betting welcome offers",
+          "position": 13.4,
+          "prevPosition": 14.5,
+          "delta": 1.1,
+          "clicks": 3
+        },
+        {
+          "keyword": "free betting sites",
+          "position": 5.9,
+          "prevPosition": 4.9,
+          "delta": -1.0,
+          "clicks": 7
+        }
+      ],
+      "topKeywords": [
+        {
+          "keyword": "free bets",
+          "position": 2.3,
+          "clicks": 887,
+          "impressions": 7190,
+          "ctr": 12.34
+        },
+        {
+          "keyword": "freebets",
+          "position": 1.3,
+          "clicks": 116,
+          "impressions": 602,
+          "ctr": 19.27
+        },
+        {
+          "keyword": "free bets uk",
+          "position": 1.8,
+          "clicks": 99,
+          "impressions": 1371,
+          "ctr": 7.22
+        },
+        {
+          "keyword": "free bet offers",
+          "position": 6.8,
+          "clicks": 77,
+          "impressions": 2481,
+          "ctr": 3.1
+        },
+        {
+          "keyword": "betting sites",
+          "position": 22.4,
+          "clicks": 49,
+          "impressions": 1394,
+          "ctr": 3.52
+        },
+        {
+          "keyword": "bet 10 get",
+          "position": 6.2,
+          "clicks": 30,
+          "impressions": 353,
+          "ctr": 8.5
+        },
+        {
+          "keyword": "bet 10 get 30",
+          "position": 3.3,
+          "clicks": 27,
+          "impressions": 411,
+          "ctr": 6.57
+        },
+        {
+          "keyword": "freebet",
+          "position": 3.2,
+          "clicks": 26,
+          "impressions": 687,
+          "ctr": 3.78
+        },
+        {
+          "keyword": "freebets uk",
+          "position": 1.0,
+          "clicks": 22,
+          "impressions": 79,
+          "ctr": 27.85
+        },
+        {
+          "keyword": "new betting sites",
+          "position": 10.0,
+          "clicks": 19,
+          "impressions": 955,
+          "ctr": 1.99
+        },
+        {
+          "keyword": "free bet",
+          "position": 14.4,
+          "clicks": 18,
+          "impressions": 801,
+          "ctr": 2.25
+        },
+        {
+          "keyword": "free bets offers",
+          "position": 8.3,
+          "clicks": 18,
+          "impressions": 650,
+          "ctr": 2.77
+        },
+        {
+          "keyword": "free bets.com",
+          "position": 1.0,
+          "clicks": 10,
+          "impressions": 39,
+          "ctr": 25.64
+        },
+        {
+          "keyword": "betting sign up offers",
+          "position": 14.5,
+          "clicks": 9,
+          "impressions": 1287,
+          "ctr": 0.7
+        },
+        {
+          "keyword": "bet 10 get 40",
+          "position": 8.9,
+          "clicks": 7,
+          "impressions": 226,
+          "ctr": 3.1
+        }
+      ],
+      "trend": [
+        {
+          "date": "2026-07-23",
+          "clicks": 2093,
+          "impressions": 28705,
+          "avgPosition": 6.7,
+          "ctr": 7.29,
+          "keywordCount": 50,
+          "top10": 36,
+          "top3": 8
+        },
+        {
+          "date": "2026-07-26",
+          "clicks": 1999,
+          "impressions": 27406,
+          "avgPosition": 6.9,
+          "ctr": 7.29,
+          "keywordCount": 50,
+          "top10": 36,
+          "top3": 8
+        },
+        {
+          "date": "2026-08-01",
+          "clicks": 1999,
+          "impressions": 27406,
+          "avgPosition": 6.9,
+          "ctr": 7.29,
+          "keywordCount": 50,
+          "top10": 36,
+          "top3": 8
+        },
+        {
+          "date": "2026-08-02",
+          "clicks": 1999,
+          "impressions": 27406,
+          "avgPosition": 6.9,
+          "ctr": 7.29,
+          "keywordCount": 50,
+          "top10": 36,
+          "top3": 8
+        },
+        {
+          "date": "2026-08-03",
+          "clicks": 1999,
+          "impressions": 27406,
+          "avgPosition": 6.9,
+          "ctr": 7.29,
+          "keywordCount": 50,
+          "top10": 36,
+          "top3": 8
+        },
+        {
+          "date": "2026-08-04",
+          "clicks": 1999,
+          "impressions": 27406,
+          "avgPosition": 6.9,
+          "ctr": 7.29,
+          "keywordCount": 50,
+          "top10": 36,
+          "top3": 8
+        },
+        {
+          "date": "2026-08-07",
+          "clicks": 1551,
+          "impressions": 23480,
+          "avgPosition": 7.9,
+          "ctr": 6.61,
+          "keywordCount": 50,
+          "top10": 34,
+          "top3": 8
+        },
+        {
+          "date": "2026-08-11",
+          "clicks": 1551,
+          "impressions": 23480,
+          "avgPosition": 7.9,
+          "ctr": 6.61,
+          "keywordCount": 50,
+          "top10": 34,
+          "top3": 8
+        }
+      ],
+      "health": {
+        "status": 200,
+        "lastChecked": null,
+        "title": "",
+        "h1": "",
+        "metaDescription": "",
+        "wordCount": null,
+        "indexed": null
+      }
+    },
+    {
+      "path": "/betting-sites/",
+      "key": "betting-sites",
+      "label": "Betting Sites",
+      "current": {
+        "clicks": 132,
+        "impressions": 33908,
+        "avgPosition": 15.6,
+        "ctr": 0.39,
+        "keywordCount": 49,
+        "top10": 21,
+        "top3": 2
+      },
+      "vs7d": {
+        "clicksDelta": 20,
+        "impressionsDelta": 2073,
+        "positionDelta": 1.0
+      },
+      "vs30d": {
+        "clicksDelta": 25,
+        "positionDelta": 3.0
+      },
+      "movers": [
+        {
+          "keyword": "betting sites",
+          "position": 24.8,
+          "prevPosition": 30.3,
+          "delta": 5.5,
+          "clicks": 3
+        },
+        {
+          "keyword": "top 20 betting sites uk",
+          "position": 13.9,
+          "prevPosition": 18.9,
+          "delta": 5.0,
+          "clicks": 6
+        },
+        {
+          "keyword": "best betting sites",
+          "position": 32.5,
+          "prevPosition": 37.0,
+          "delta": 4.5,
+          "clicks": 2
+        },
+        {
+          "keyword": "brand new betting sites uk",
+          "position": 13.6,
+          "prevPosition": 10.2,
+          "delta": -3.4,
+          "clicks": 3
+        },
+        {
+          "keyword": "new uk bookmakers 2026",
+          "position": 9.5,
+          "prevPosition": 12.4,
+          "delta": 2.9,
+          "clicks": 3
+        },
+        {
+          "keyword": "betting sites uk",
+          "position": 21.6,
+          "prevPosition": 24.0,
+          "delta": 2.4,
+          "clicks": 3
+        },
+        {
+          "keyword": "new uk sports betting sites",
+          "position": 11.7,
+          "prevPosition": 13.8,
+          "delta": 2.1,
+          "clicks": 2
+        },
+        {
+          "keyword": "new uk betting sites",
+          "position": 11.8,
+          "prevPosition": 13.5,
+          "delta": 1.7,
+          "clicks": 6
+        },
+        {
+          "keyword": "bet442",
+          "position": 21.2,
+          "prevPosition": 20.1,
+          "delta": -1.1,
+          "clicks": 2
+        },
+        {
+          "keyword": "best betting sites 2026",
+          "position": 27.9,
+          "prevPosition": 26.9,
+          "delta": -1.0,
+          "clicks": 1
+        }
+      ],
+      "topKeywords": [
+        {
+          "keyword": "7bet",
+          "position": 5.2,
+          "clicks": 12,
+          "impressions": 10752,
+          "ctr": 0.11
+        },
+        {
+          "keyword": "paddy power bet 5 get 40",
+          "position": 7.1,
+          "clicks": 7,
+          "impressions": 99,
+          "ctr": 7.07
+        },
+        {
+          "keyword": "new uk betting sites",
+          "position": 11.8,
+          "clicks": 6,
+          "impressions": 1034,
+          "ctr": 0.58
+        },
+        {
+          "keyword": "top 20 betting sites uk",
+          "position": 13.9,
+          "clicks": 6,
+          "impressions": 1184,
+          "ctr": 0.51
+        },
+        {
+          "keyword": "new betting sites uk",
+          "position": 13.8,
+          "clicks": 5,
+          "impressions": 1885,
+          "ctr": 0.27
+        },
+        {
+          "keyword": "brand new betting sites",
+          "position": 12.3,
+          "clicks": 4,
+          "impressions": 407,
+          "ctr": 0.98
+        },
+        {
+          "keyword": "gambling sites uk",
+          "position": 63.1,
+          "clicks": 4,
+          "impressions": 68,
+          "ctr": 5.88
+        },
+        {
+          "keyword": "new uk bookmakers",
+          "position": 12.9,
+          "clicks": 4,
+          "impressions": 589,
+          "ctr": 0.68
+        },
+        {
+          "keyword": "sportingbet sign up offer",
+          "position": 2.8,
+          "clicks": 4,
+          "impressions": 126,
+          "ctr": 3.17
+        },
+        {
+          "keyword": "betting sites",
+          "position": 24.8,
+          "clicks": 3,
+          "impressions": 3541,
+          "ctr": 0.08
+        },
+        {
+          "keyword": "betting sites uk",
+          "position": 21.6,
+          "clicks": 3,
+          "impressions": 2688,
+          "ctr": 0.11
+        },
+        {
+          "keyword": "brand new betting sites uk",
+          "position": 13.6,
+          "clicks": 3,
+          "impressions": 159,
+          "ctr": 1.89
+        },
+        {
+          "keyword": "new bookmakers uk",
+          "position": 11.8,
+          "clicks": 3,
+          "impressions": 315,
+          "ctr": 0.95
+        },
+        {
+          "keyword": "new uk bookmakers 2026",
+          "position": 9.5,
+          "clicks": 3,
+          "impressions": 6,
+          "ctr": 50.0
+        },
+        {
+          "keyword": "paddypower bet 5 get 40",
+          "position": 7.3,
+          "clicks": 3,
+          "impressions": 20,
+          "ctr": 15.0
+        }
+      ],
+      "trend": [
+        {
+          "date": "2026-07-23",
+          "clicks": 106,
+          "impressions": 30027,
+          "avgPosition": 17.9,
+          "ctr": 0.35,
+          "keywordCount": 50,
+          "top10": 19,
+          "top3": 4
+        },
+        {
+          "date": "2026-07-26",
+          "clicks": 112,
+          "impressions": 31835,
+          "avgPosition": 16.6,
+          "ctr": 0.35,
+          "keywordCount": 50,
+          "top10": 22,
+          "top3": 5
+        },
+        {
+          "date": "2026-08-01",
+          "clicks": 112,
+          "impressions": 31835,
+          "avgPosition": 16.6,
+          "ctr": 0.35,
+          "keywordCount": 50,
+          "top10": 22,
+          "top3": 5
+        },
+        {
+          "date": "2026-08-02",
+          "clicks": 112,
+          "impressions": 31835,
+          "avgPosition": 16.6,
+          "ctr": 0.35,
+          "keywordCount": 50,
+          "top10": 22,
+          "top3": 5
+        },
+        {
+          "date": "2026-08-03",
+          "clicks": 112,
+          "impressions": 31835,
+          "avgPosition": 16.6,
+          "ctr": 0.35,
+          "keywordCount": 50,
+          "top10": 22,
+          "top3": 5
+        },
+        {
+          "date": "2026-08-04",
+          "clicks": 112,
+          "impressions": 31835,
+          "avgPosition": 16.6,
+          "ctr": 0.35,
+          "keywordCount": 50,
+          "top10": 22,
+          "top3": 5
+        },
+        {
+          "date": "2026-08-07",
+          "clicks": 132,
+          "impressions": 33908,
+          "avgPosition": 15.6,
+          "ctr": 0.39,
+          "keywordCount": 49,
+          "top10": 21,
+          "top3": 2
+        },
+        {
+          "date": "2026-08-11",
+          "clicks": 132,
+          "impressions": 33908,
+          "avgPosition": 15.6,
+          "ctr": 0.39,
+          "keywordCount": 49,
+          "top10": 21,
+          "top3": 2
+        }
+      ],
+      "health": {
+        "status": 200,
+        "lastChecked": null,
+        "title": "",
+        "h1": "",
+        "metaDescription": "",
+        "wordCount": null,
+        "indexed": null
+      }
+    },
+    {
+      "path": "/casino/",
+      "key": "casino",
+      "label": "Casino",
+      "current": {
+        "clicks": 211,
+        "impressions": 19932,
+        "avgPosition": 10.0,
+        "ctr": 1.06,
+        "keywordCount": 50,
+        "top10": 19,
+        "top3": 0
+      },
+      "vs7d": {
+        "clicksDelta": -22,
+        "impressionsDelta": -1799,
+        "positionDelta": -1.0
+      },
+      "vs30d": {
+        "clicksDelta": -86,
+        "positionDelta": -0.2
+      },
+      "movers": [
+        {
+          "keyword": "casino welcome offer",
+          "position": 15.3,
+          "prevPosition": 11.5,
+          "delta": -3.8,
+          "clicks": 6
+        },
+        {
+          "keyword": "welcome bonus casino uk",
+          "position": 14.9,
+          "prevPosition": 11.6,
+          "delta": -3.3,
+          "clicks": 3
+        },
+        {
+          "keyword": "casino welcome offers",
+          "position": 14.5,
+          "prevPosition": 11.8,
+          "delta": -2.7,
+          "clicks": 7
+        },
+        {
+          "keyword": "best casino sign up offers",
+          "position": 14.4,
+          "prevPosition": 12.0,
+          "delta": -2.4,
+          "clicks": 2
+        },
+        {
+          "keyword": "casino sign up offers",
+          "position": 13.3,
+          "prevPosition": 11.0,
+          "delta": -2.3,
+          "clicks": 5
+        },
+        {
+          "keyword": "deposit bonus casino",
+          "position": 8.0,
+          "prevPosition": 5.8,
+          "delta": -2.2,
+          "clicks": 2
+        },
+        {
+          "keyword": "casino deposit bonus",
+          "position": 7.8,
+          "prevPosition": 5.8,
+          "delta": -2.0,
+          "clicks": 8
+        },
+        {
+          "keyword": "casino welcome bonus",
+          "position": 10.7,
+          "prevPosition": 9.0,
+          "delta": -1.7,
+          "clicks": 17
+        },
+        {
+          "keyword": "free casino bonus",
+          "position": 21.9,
+          "prevPosition": 20.2,
+          "delta": -1.7,
+          "clicks": 3
+        },
+        {
+          "keyword": "new casino",
+          "position": 20.4,
+          "prevPosition": 18.8,
+          "delta": -1.6,
+          "clicks": 2
+        }
+      ],
+      "topKeywords": [
+        {
+          "keyword": "casino sign up bonus",
+          "position": 7.3,
+          "clicks": 21,
+          "impressions": 1756,
+          "ctr": 1.2
+        },
+        {
+          "keyword": "casino welcome bonus",
+          "position": 10.7,
+          "clicks": 17,
+          "impressions": 2039,
+          "ctr": 0.83
+        },
+        {
+          "keyword": "casino bonus",
+          "position": 10.3,
+          "clicks": 14,
+          "impressions": 2477,
+          "ctr": 0.57
+        },
+        {
+          "keyword": "welcome bonus casino",
+          "position": 7.0,
+          "clicks": 14,
+          "impressions": 816,
+          "ctr": 1.72
+        },
+        {
+          "keyword": "casino promotions",
+          "position": 6.1,
+          "clicks": 13,
+          "impressions": 963,
+          "ctr": 1.35
+        },
+        {
+          "keyword": "sign up bonus casino",
+          "position": 6.4,
+          "clicks": 12,
+          "impressions": 566,
+          "ctr": 2.12
+        },
+        {
+          "keyword": "casino offers",
+          "position": 8.3,
+          "clicks": 11,
+          "impressions": 1507,
+          "ctr": 0.73
+        },
+        {
+          "keyword": "casino bonuses",
+          "position": 5.0,
+          "clicks": 9,
+          "impressions": 2244,
+          "ctr": 0.4
+        },
+        {
+          "keyword": "casino deposit bonus",
+          "position": 7.8,
+          "clicks": 8,
+          "impressions": 805,
+          "ctr": 0.99
+        },
+        {
+          "keyword": "casino welcome offers",
+          "position": 14.5,
+          "clicks": 7,
+          "impressions": 597,
+          "ctr": 1.17
+        },
+        {
+          "keyword": "casino welcome offer",
+          "position": 15.3,
+          "clicks": 6,
+          "impressions": 325,
+          "ctr": 1.85
+        },
+        {
+          "keyword": "casino sign up offers",
+          "position": 13.3,
+          "clicks": 5,
+          "impressions": 525,
+          "ctr": 0.95
+        },
+        {
+          "keyword": "welcome bonus",
+          "position": 11.3,
+          "clicks": 5,
+          "impressions": 509,
+          "ctr": 0.98
+        },
+        {
+          "keyword": "sign up casino bonus",
+          "position": 7.3,
+          "clicks": 4,
+          "impressions": 206,
+          "ctr": 1.94
+        },
+        {
+          "keyword": "casino",
+          "position": 167.9,
+          "clicks": 3,
+          "impressions": 23,
+          "ctr": 13.04
+        }
+      ],
+      "trend": [
+        {
+          "date": "2026-07-23",
+          "clicks": 258,
+          "impressions": 22938,
+          "avgPosition": 9.1,
+          "ctr": 1.12,
+          "keywordCount": 50,
+          "top10": 23,
+          "top3": 1
+        },
+        {
+          "date": "2026-07-26",
+          "clicks": 233,
+          "impressions": 21731,
+          "avgPosition": 9.0,
+          "ctr": 1.07,
+          "keywordCount": 50,
+          "top10": 22,
+          "top3": 1
+        },
+        {
+          "date": "2026-08-01",
+          "clicks": 233,
+          "impressions": 21731,
+          "avgPosition": 9.0,
+          "ctr": 1.07,
+          "keywordCount": 50,
+          "top10": 22,
+          "top3": 1
+        },
+        {
+          "date": "2026-08-02",
+          "clicks": 233,
+          "impressions": 21731,
+          "avgPosition": 9.0,
+          "ctr": 1.07,
+          "keywordCount": 50,
+          "top10": 22,
+          "top3": 1
+        },
+        {
+          "date": "2026-08-03",
+          "clicks": 233,
+          "impressions": 21731,
+          "avgPosition": 9.0,
+          "ctr": 1.07,
+          "keywordCount": 50,
+          "top10": 22,
+          "top3": 1
+        },
+        {
+          "date": "2026-08-04",
+          "clicks": 233,
+          "impressions": 21731,
+          "avgPosition": 9.0,
+          "ctr": 1.07,
+          "keywordCount": 50,
+          "top10": 22,
+          "top3": 1
+        },
+        {
+          "date": "2026-08-07",
+          "clicks": 211,
+          "impressions": 19932,
+          "avgPosition": 10.0,
+          "ctr": 1.06,
+          "keywordCount": 50,
+          "top10": 19,
+          "top3": 0
+        },
+        {
+          "date": "2026-08-11",
+          "clicks": 211,
+          "impressions": 19932,
+          "avgPosition": 10.0,
+          "ctr": 1.06,
+          "keywordCount": 50,
+          "top10": 19,
+          "top3": 0
+        }
+      ],
+      "health": {
+        "status": 200,
+        "lastChecked": null,
+        "title": "",
+        "h1": "",
+        "metaDescription": "",
+        "wordCount": null,
+        "indexed": null
+      }
+    },
+    {
+      "path": "/casino/best-casino-sites/",
+      "key": "best-casino",
+      "label": "Best Casino Sites",
+      "current": {},
+      "vs7d": {},
+      "vs30d": {},
+      "movers": [],
+      "topKeywords": [],
+      "trend": [],
+      "health": {
+        "status": 200,
+        "lastChecked": null,
+        "title": "",
+        "h1": "",
+        "metaDescription": "",
+        "wordCount": null,
+        "indexed": null
+      }
+    },
+    {
+      "path": "/casino/free-spins/",
+      "key": "casino-free-spins",
+      "label": "Casino Free Spins",
+      "current": {
+        "clicks": 97,
+        "impressions": 4180,
+        "avgPosition": 36.1,
+        "ctr": 2.32,
+        "keywordCount": 50,
+        "top10": 0,
+        "top3": 0
+      },
+      "vs7d": {
+        "clicksDelta": -14,
+        "impressionsDelta": 192,
+        "positionDelta": -0.4
+      },
+      "vs30d": {
+        "clicksDelta": -13,
+        "positionDelta": -0.2
+      },
+      "movers": [
+        {
+          "keyword": "best slots welcome bonus no wagering uk no deposit",
+          "position": 125.5,
+          "prevPosition": 60.0,
+          "delta": -65.5,
+          "clicks": 2
+        },
+        {
+          "keyword": "20 free spins no deposit uk",
+          "position": 30.6,
+          "prevPosition": 55.0,
+          "delta": 24.4,
+          "clicks": 1
+        },
+        {
+          "keyword": "casino free spins today",
+          "position": 49.1,
+          "prevPosition": 30.3,
+          "delta": -18.8,
+          "clicks": 1
+        },
+        {
+          "keyword": "10 free spins today",
+          "position": 50.3,
+          "prevPosition": 35.0,
+          "delta": -15.3,
+          "clicks": 1
+        },
+        {
+          "keyword": "casino promotions free spins",
+          "position": 28.0,
+          "prevPosition": 38.3,
+          "delta": 10.3,
+          "clicks": 1
+        },
+        {
+          "keyword": "no deposit no wagering free spins uk real money",
+          "position": 66.0,
+          "prevPosition": 56.7,
+          "delta": -9.3,
+          "clicks": 2
+        },
+        {
+          "keyword": "deposit free spins",
+          "position": 20.2,
+          "prevPosition": 12.1,
+          "delta": -8.1,
+          "clicks": 1
+        },
+        {
+          "keyword": "welcome offer free spins",
+          "position": 47.7,
+          "prevPosition": 54.3,
+          "delta": 6.6,
+          "clicks": 2
+        },
+        {
+          "keyword": "casino free spins offer",
+          "position": 37.5,
+          "prevPosition": 41.0,
+          "delta": 3.5,
+          "clicks": 1
+        },
+        {
+          "keyword": "deposit 10 get free spins",
+          "position": 29.8,
+          "prevPosition": 26.4,
+          "delta": -3.4,
+          "clicks": 1
+        }
+      ],
+      "topKeywords": [
+        {
+          "keyword": "free spins",
+          "position": 44.3,
+          "clicks": 13,
+          "impressions": 994,
+          "ctr": 1.31
+        },
+        {
+          "keyword": "free spins no deposit uk",
+          "position": 44.8,
+          "clicks": 11,
+          "impressions": 650,
+          "ctr": 1.69
+        },
+        {
+          "keyword": "brand new no deposit free spins uk",
+          "position": 46.2,
+          "clicks": 5,
+          "impressions": 119,
+          "ctr": 4.2
+        },
+        {
+          "keyword": "free spins on sign up",
+          "position": 23.3,
+          "clicks": 5,
+          "impressions": 363,
+          "ctr": 1.38
+        },
+        {
+          "keyword": "best online casino uk with free spins",
+          "position": 35.5,
+          "clicks": 3,
+          "impressions": 22,
+          "ctr": 13.64
+        },
+        {
+          "keyword": "free spins on deposit",
+          "position": 27.6,
+          "clicks": 3,
+          "impressions": 35,
+          "ctr": 8.57
+        },
+        {
+          "keyword": "free spins uk",
+          "position": 26.0,
+          "clicks": 3,
+          "impressions": 328,
+          "ctr": 0.91
+        },
+        {
+          "keyword": "10 free spins",
+          "position": 30.8,
+          "clicks": 2,
+          "impressions": 92,
+          "ctr": 2.17
+        },
+        {
+          "keyword": "100 free spins no wagering uk",
+          "position": 30.3,
+          "clicks": 2,
+          "impressions": 7,
+          "ctr": 28.57
+        },
+        {
+          "keyword": "best slots welcome bonus no wagering uk no deposit",
+          "position": 125.5,
+          "clicks": 2,
+          "impressions": 2,
+          "ctr": 100.0
+        },
+        {
+          "keyword": "deposit 20 get free spins",
+          "position": 31.4,
+          "clicks": 2,
+          "impressions": 24,
+          "ctr": 8.33
+        },
+        {
+          "keyword": "deposit get free spins",
+          "position": 36.5,
+          "clicks": 2,
+          "impressions": 4,
+          "ctr": 50.0
+        },
+        {
+          "keyword": "deposit £10 get free spins",
+          "position": 32.4,
+          "clicks": 2,
+          "impressions": 14,
+          "ctr": 14.29
+        },
+        {
+          "keyword": "free spins no deposit casino",
+          "position": 53.9,
+          "clicks": 2,
+          "impressions": 108,
+          "ctr": 1.85
+        },
+        {
+          "keyword": "free spins on registration uk",
+          "position": 19.9,
+          "clicks": 2,
+          "impressions": 162,
+          "ctr": 1.23
+        }
+      ],
+      "trend": [
+        {
+          "date": "2026-07-23",
+          "clicks": 112,
+          "impressions": 4468,
+          "avgPosition": 36.0,
+          "ctr": 2.51,
+          "keywordCount": 50,
+          "top10": 1,
+          "top3": 1
+        },
+        {
+          "date": "2026-07-26",
+          "clicks": 111,
+          "impressions": 3988,
+          "avgPosition": 35.7,
+          "ctr": 2.78,
+          "keywordCount": 50,
+          "top10": 0,
+          "top3": 0
+        },
+        {
+          "date": "2026-08-01",
+          "clicks": 111,
+          "impressions": 3988,
+          "avgPosition": 35.7,
+          "ctr": 2.78,
+          "keywordCount": 50,
+          "top10": 0,
+          "top3": 0
+        },
+        {
+          "date": "2026-08-02",
+          "clicks": 111,
+          "impressions": 3988,
+          "avgPosition": 35.7,
+          "ctr": 2.78,
+          "keywordCount": 50,
+          "top10": 0,
+          "top3": 0
+        },
+        {
+          "date": "2026-08-03",
+          "clicks": 111,
+          "impressions": 3988,
+          "avgPosition": 35.7,
+          "ctr": 2.78,
+          "keywordCount": 50,
+          "top10": 0,
+          "top3": 0
+        },
+        {
+          "date": "2026-08-04",
+          "clicks": 111,
+          "impressions": 3988,
+          "avgPosition": 35.7,
+          "ctr": 2.78,
+          "keywordCount": 50,
+          "top10": 0,
+          "top3": 0
+        },
+        {
+          "date": "2026-08-07",
+          "clicks": 97,
+          "impressions": 4180,
+          "avgPosition": 36.1,
+          "ctr": 2.32,
+          "keywordCount": 50,
+          "top10": 0,
+          "top3": 0
+        },
+        {
+          "date": "2026-08-11",
+          "clicks": 97,
+          "impressions": 4180,
+          "avgPosition": 36.1,
+          "ctr": 2.32,
+          "keywordCount": 50,
+          "top10": 0,
+          "top3": 0
+        }
+      ],
+      "health": {
+        "status": 200,
+        "lastChecked": null,
+        "title": "",
+        "h1": "",
+        "metaDescription": "",
+        "wordCount": null,
+        "indexed": null
+      }
+    },
+    {
+      "path": "/slots/",
+      "key": "slots",
+      "label": "Slots",
+      "current": {},
+      "vs7d": {},
+      "vs30d": {},
+      "movers": [],
+      "topKeywords": [],
+      "trend": [],
+      "health": {
+        "status": 200,
+        "lastChecked": null,
+        "title": "",
+        "h1": "",
+        "metaDescription": "",
+        "wordCount": null,
+        "indexed": null
+      }
+    },
+    {
+      "path": "/slots/sign-up-offers/",
+      "key": "slots-sign-up",
+      "label": "Slots Sign-Up Offers",
+      "current": {
+        "clicks": 281,
+        "impressions": 9650,
+        "avgPosition": 5.1,
+        "ctr": 2.91,
+        "keywordCount": 50,
+        "top10": 47,
+        "top3": 1
+      },
+      "vs7d": {
+        "clicksDelta": 8,
+        "impressionsDelta": -33958,
+        "positionDelta": -0.4
+      },
+      "vs30d": {
+        "clicksDelta": -1,
+        "positionDelta": 0.2
+      },
+      "movers": [
+        {
+          "keyword": "free sign up bonus",
+          "position": 10.0,
+          "prevPosition": 11.9,
+          "delta": 1.9,
+          "clicks": 4
+        },
+        {
+          "keyword": "welcome bonus",
+          "position": 10.1,
+          "prevPosition": 11.3,
+          "delta": 1.2,
+          "clicks": 3
+        }
+      ],
+      "topKeywords": [
+        {
+          "keyword": "slots sign up bonus",
+          "position": 3.3,
+          "clicks": 26,
+          "impressions": 708,
+          "ctr": 3.67
+        },
+        {
+          "keyword": "slots welcome bonus",
+          "position": 5.9,
+          "clicks": 19,
+          "impressions": 714,
+          "ctr": 2.66
+        },
+        {
+          "keyword": "slot sign up offers",
+          "position": 3.8,
+          "clicks": 17,
+          "impressions": 188,
+          "ctr": 9.04
+        },
+        {
+          "keyword": "slots bonus",
+          "position": 3.2,
+          "clicks": 16,
+          "impressions": 600,
+          "ctr": 2.67
+        },
+        {
+          "keyword": "slot offers",
+          "position": 4.1,
+          "clicks": 12,
+          "impressions": 243,
+          "ctr": 4.94
+        },
+        {
+          "keyword": "slots with welcome bonus",
+          "position": 5.5,
+          "clicks": 12,
+          "impressions": 239,
+          "ctr": 5.02
+        },
+        {
+          "keyword": "uk slots welcome bonus",
+          "position": 5.7,
+          "clicks": 12,
+          "impressions": 231,
+          "ctr": 5.19
+        },
+        {
+          "keyword": "slots offers",
+          "position": 4.2,
+          "clicks": 11,
+          "impressions": 397,
+          "ctr": 2.77
+        },
+        {
+          "keyword": "slots sign up offers",
+          "position": 3.1,
+          "clicks": 11,
+          "impressions": 281,
+          "ctr": 3.91
+        },
+        {
+          "keyword": "slots welcome offers",
+          "position": 3.8,
+          "clicks": 10,
+          "impressions": 167,
+          "ctr": 5.99
+        },
+        {
+          "keyword": "sign up bonus",
+          "position": 7.1,
+          "clicks": 8,
+          "impressions": 723,
+          "ctr": 1.11
+        },
+        {
+          "keyword": "welcome bonus slots",
+          "position": 5.2,
+          "clicks": 6,
+          "impressions": 331,
+          "ctr": 1.81
+        },
+        {
+          "keyword": "welcome offers slots",
+          "position": 4.1,
+          "clicks": 6,
+          "impressions": 82,
+          "ctr": 7.32
+        },
+        {
+          "keyword": "best slots sign up offers",
+          "position": 3.8,
+          "clicks": 5,
+          "impressions": 240,
+          "ctr": 2.08
+        },
+        {
+          "keyword": "online slots welcome bonus",
+          "position": 5.5,
+          "clicks": 5,
+          "impressions": 257,
+          "ctr": 1.95
+        }
+      ],
+      "trend": [
+        {
+          "date": "2026-07-23",
+          "clicks": 266,
+          "impressions": 43055,
+          "avgPosition": 4.8,
+          "ctr": 0.62,
+          "keywordCount": 50,
+          "top10": 48,
+          "top3": 3
+        },
+        {
+          "date": "2026-07-26",
+          "clicks": 273,
+          "impressions": 43608,
+          "avgPosition": 4.7,
+          "ctr": 0.63,
+          "keywordCount": 50,
+          "top10": 48,
+          "top3": 3
+        },
+        {
+          "date": "2026-08-01",
+          "clicks": 273,
+          "impressions": 43608,
+          "avgPosition": 4.7,
+          "ctr": 0.63,
+          "keywordCount": 50,
+          "top10": 48,
+          "top3": 3
+        },
+        {
+          "date": "2026-08-02",
+          "clicks": 273,
+          "impressions": 43608,
+          "avgPosition": 4.7,
+          "ctr": 0.63,
+          "keywordCount": 50,
+          "top10": 48,
+          "top3": 3
+        },
+        {
+          "date": "2026-08-03",
+          "clicks": 273,
+          "impressions": 43608,
+          "avgPosition": 4.7,
+          "ctr": 0.63,
+          "keywordCount": 50,
+          "top10": 48,
+          "top3": 3
+        },
+        {
+          "date": "2026-08-04",
+          "clicks": 273,
+          "impressions": 43608,
+          "avgPosition": 4.7,
+          "ctr": 0.63,
+          "keywordCount": 50,
+          "top10": 48,
+          "top3": 3
+        },
+        {
+          "date": "2026-08-07",
+          "clicks": 281,
+          "impressions": 9650,
+          "avgPosition": 5.1,
+          "ctr": 2.91,
+          "keywordCount": 50,
+          "top10": 47,
+          "top3": 1
+        },
+        {
+          "date": "2026-08-11",
+          "clicks": 281,
+          "impressions": 9650,
+          "avgPosition": 5.1,
+          "ctr": 2.91,
+          "keywordCount": 50,
+          "top10": 47,
+          "top3": 1
+        }
+      ],
+      "health": {
+        "status": 200,
+        "lastChecked": null,
+        "title": "",
+        "h1": "",
+        "metaDescription": "",
+        "wordCount": null,
+        "indexed": null
+      }
+    }
+  ]
+}
