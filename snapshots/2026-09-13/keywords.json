@@ -1,0 +1,27 @@
+{
+  "home": {
+    "label": "/ (Home)",
+    "url": "https://www.freebets.com/",
+    "keywords": [
+      {"keyword": "free bets", "clicks": 700, "impressions": 5300, "ctr": 13.21, "position": 1.7},
+      {"keyword": "freebets", "clicks": 99, "impressions": 490, "ctr": 20.2, "position": 1.5},
+      {"keyword": "free bet offers", "clicks": 87, "impressions": 3346, "ctr": 2.6, "position": 4.8},
+      {"keyword": "free bets uk", "clicks": 86, "impressions": 1397, "ctr": 6.16, "position": 1.9},
+      {"keyword": "betting sites", "clicks": 42, "impressions": 1775, "ctr": 2.37, "position": 23.7},
+      {"keyword": "bet 10 get", "clicks": 24, "impressions": 316, "ctr": 7.59, "position": 6.0},
+      {"keyword": "free bet", "clicks": 21, "impressions": 420, "ctr": 5.0, "position": 14.1},
+      {"keyword": "freebets uk", "clicks": 21, "impressions": 50, "ctr": 42.0, "position": 1.0},
+      {"keyword": "freebet", "clicks": 19, "impressions": 661, "ctr": 2.87, "position": 3.0},
+      {"keyword": "new betting sites", "clicks": 18, "impressions": 1002, "ctr": 1.8, "position": 11.3}
+    ]
+  },
+  "no-deposit": {"label": "/no-deposit/", "url": "https://www.freebets.com/no-deposit/", "keywords": [{"keyword": "free spins no deposit uk", "clicks": 144, "impressions": 1435, "ctr": 10.03, "position": 36.3}, {"keyword": "free spins no deposit", "clicks": 73, "impressions": 2437, "ctr": 3.0, "position": 32.2}, {"keyword": "free bets no deposit", "clicks": 57, "impressions": 2695, "ctr": 2.12, "position": 5.4}]},
+  "casino": {"label": "/casino/", "url": "https://www.freebets.com/casino/", "keywords": [{"keyword": "casino sign up bonus", "clicks": 40, "impressions": 2099, "ctr": 1.91, "position": 6.7}]},
+  "betting-sites": {"label": "/betting-sites/", "url": "https://www.freebets.com/betting-sites/", "keywords": [{"keyword": "top 20 betting sites uk", "clicks": 17, "impressions": 1594, "ctr": 1.07, "position": 10.6}]},
+  "casino-free-spins": {"label": "/casino/free-spins/", "url": "https://www.freebets.com/casino/free-spins/", "keywords": [{"keyword": "free spins", "clicks": 36, "impressions": 1111, "ctr": 3.24, "position": 39.0}]},
+  "slots-sign-up": {"label": "/slots/sign-up-offers/", "url": "https://www.freebets.com/slots/sign-up-offers/", "keywords": [{"keyword": "slots sign up bonus", "clicks": 20, "impressions": 3942, "ctr": 0.51, "position": 3.8}]},
+  "betting-apps": {"label": "/betting-apps/", "url": "https://www.freebets.com/betting-apps/", "keywords": [{"keyword": "betting apps", "clicks": 5, "impressions": 1472, "ctr": 0.34, "position": 26.6}]},
+  "world-cup": {"label": "/football/world-cup/", "url": "https://www.freebets.com/football/world-cup/", "keywords": []},
+  "promotions": {"label": "/promotions/", "url": "https://www.freebets.com/promotions/", "keywords": [{"keyword": "best betting sign up offers", "clicks": 1, "impressions": 326, "ctr": 0.31, "position": 54.6}]},
+  "new-casino": {"label": "/casino/new-casino", "url": "https://www.freebets.com/casino/new-casino", "keywords": [{"keyword": "new casino sites", "clicks": 4, "impressions": 28, "ctr": 14.29, "position": 52.2}]}
+}
