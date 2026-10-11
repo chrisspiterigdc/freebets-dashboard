@@ -1,0 +1,421 @@
+{
+  "dateRange": "11 Sep – 10 Oct 2026",
+  "lastUpdated": "2026-10-11",
+  "kpis": {
+    "totalSessions": 68848,
+    "organicSessions": 54133,
+    "ahrefsOrganicTraffic": 31286,
+    "domainRating": 57,
+    "ahrefsRank": 389157,
+    "rankingKeywords": 3176,
+    "keywordsTop3": 679,
+    "avgBounceRate": 25.9
+  },
+  "dailySessions": [
+    {
+      "date": "Sep 11",
+      "value": 1897
+    },
+    {
+      "date": "Sep 12",
+      "value": 1908
+    },
+    {
+      "date": "Sep 13",
+      "value": 3558
+    },
+    {
+      "date": "Sep 14",
+      "value": 4816
+    },
+    {
+      "date": "Sep 15",
+      "value": 2221
+    },
+    {
+      "date": "Sep 16",
+      "value": 4150
+    },
+    {
+      "date": "Sep 17",
+      "value": 4298
+    },
+    {
+      "date": "Sep 18",
+      "value": 2831
+    },
+    {
+      "date": "Sep 19",
+      "value": 3133
+    },
+    {
+      "date": "Sep 20",
+      "value": 3156
+    },
+    {
+      "date": "Sep 21",
+      "value": 3970
+    },
+    {
+      "date": "Sep 22",
+      "value": 1817
+    },
+    {
+      "date": "Sep 23",
+      "value": 1824
+    },
+    {
+      "date": "Sep 24",
+      "value": 1882
+    },
+    {
+      "date": "Sep 25",
+      "value": 1974
+    },
+    {
+      "date": "Sep 26",
+      "value": 1734
+    },
+    {
+      "date": "Sep 27",
+      "value": 1345
+    },
+    {
+      "date": "Sep 28",
+      "value": 1546
+    },
+    {
+      "date": "Sep 29",
+      "value": 1717
+    },
+    {
+      "date": "Sep 30",
+      "value": 1585
+    },
+    {
+      "date": "Oct 1",
+      "value": 1915
+    },
+    {
+      "date": "Oct 2",
+      "value": 2088
+    },
+    {
+      "date": "Oct 3",
+      "value": 2068
+    },
+    {
+      "date": "Oct 4",
+      "value": 1684
+    },
+    {
+      "date": "Oct 5",
+      "value": 1687
+    },
+    {
+      "date": "Oct 6",
+      "value": 1795
+    },
+    {
+      "date": "Oct 7",
+      "value": 1787
+    },
+    {
+      "date": "Oct 8",
+      "value": 1896
+    },
+    {
+      "date": "Oct 9",
+      "value": 1947
+    },
+    {
+      "date": "Oct 10",
+      "value": 1899
+    },
+    {
+      "date": "Oct 11",
+      "value": 504
+    }
+  ],
+  "channels": [
+    {
+      "name": "Organic Search",
+      "sessions": 54133,
+      "color": "#00c853"
+    },
+    {
+      "name": "Direct",
+      "sessions": 9780,
+      "color": "#58a6ff"
+    },
+    {
+      "name": "Organic Social",
+      "sessions": 4303,
+      "color": "#bc8cff"
+    },
+    {
+      "name": "Paid Social",
+      "sessions": 260,
+      "color": "#e3b341"
+    },
+    {
+      "name": "Email",
+      "sessions": 163,
+      "color": "#f78166"
+    },
+    {
+      "name": "Other",
+      "sessions": 840,
+      "color": "#6e7681"
+    }
+  ],
+  "topQueries": [
+    {
+      "query": "next preston manager odds",
+      "clicks": 2283,
+      "impressions": 7318,
+      "ctr": 31.2,
+      "position": 2.9
+    },
+    {
+      "query": "next hibs manager odds",
+      "clicks": 1498,
+      "impressions": 5932,
+      "ctr": 25.3,
+      "position": 3.5
+    },
+    {
+      "query": "free bets",
+      "clicks": 981,
+      "impressions": 6844,
+      "ctr": 14.3,
+      "position": 3.7
+    },
+    {
+      "query": "preston manager odds",
+      "clicks": 654,
+      "impressions": 1652,
+      "ctr": 39.6,
+      "position": 2.8
+    },
+    {
+      "query": "horse racing tips",
+      "clicks": 649,
+      "impressions": 3465,
+      "ctr": 18.7,
+      "position": 3.7
+    },
+    {
+      "query": "hibs next manager odds",
+      "clicks": 560,
+      "impressions": 1780,
+      "ctr": 31.5,
+      "position": 2.7
+    },
+    {
+      "query": "next celtic manager odds",
+      "clicks": 534,
+      "impressions": 5658,
+      "ctr": 9.4,
+      "position": 3.9
+    },
+    {
+      "query": "racing tips",
+      "clicks": 490,
+      "impressions": 2193,
+      "ctr": 22.3,
+      "position": 2.5
+    },
+    {
+      "query": "charlie mccann tips",
+      "clicks": 479,
+      "impressions": 527,
+      "ctr": 90.9,
+      "position": 1.1
+    },
+    {
+      "query": "hibs manager odds",
+      "clicks": 432,
+      "impressions": 1992,
+      "ctr": 21.7,
+      "position": 3.6
+    },
+    {
+      "query": "preston north end manager odds",
+      "clicks": 382,
+      "impressions": 1155,
+      "ctr": 33.1,
+      "position": 2.8
+    },
+    {
+      "query": "preston north end",
+      "clicks": 379,
+      "impressions": 2941,
+      "ctr": 12.9,
+      "position": 2.3
+    },
+    {
+      "query": "bradford city",
+      "clicks": 344,
+      "impressions": 2281,
+      "ctr": 15.1,
+      "position": 1.9
+    },
+    {
+      "query": "horse racing tips today",
+      "clicks": 286,
+      "impressions": 2430,
+      "ctr": 11.8,
+      "position": 5.3
+    },
+    {
+      "query": "next peterborough manager odds",
+      "clicks": 280,
+      "impressions": 1467,
+      "ctr": 19.1,
+      "position": 3.6
+    },
+    {
+      "query": "next preston manager",
+      "clicks": 230,
+      "impressions": 1247,
+      "ctr": 18.4,
+      "position": 4.0
+    },
+    {
+      "query": "next hibs manager",
+      "clicks": 221,
+      "impressions": 1498,
+      "ctr": 14.8,
+      "position": 4.5
+    },
+    {
+      "query": "charlie mccann racing tips",
+      "clicks": 220,
+      "impressions": 249,
+      "ctr": 88.4,
+      "position": 1.1
+    },
+    {
+      "query": "next pne manager odds",
+      "clicks": 213,
+      "impressions": 680,
+      "ctr": 31.3,
+      "position": 2.4
+    },
+    {
+      "query": "freebets",
+      "clicks": 197,
+      "impressions": 1378,
+      "ctr": 14.3,
+      "position": 5.0
+    }
+  ],
+  "topPages": [
+    {
+      "url": "/news/next-preston-north-end-manager-five-potential-candidates-to-replace-paul-heckingbottom/",
+      "clicks": 4773,
+      "impressions": 20340,
+      "ctr": 23.5,
+      "position": 3.3
+    },
+    {
+      "url": "/news/next-hibernian-manager-five-potential-candidates-to-replace-david-gray/",
+      "clicks": 2936,
+      "impressions": 13936,
+      "ctr": 21.1,
+      "position": 4.2
+    },
+    {
+      "url": "/",
+      "clicks": 1895,
+      "impressions": 110900,
+      "ctr": 1.7,
+      "position": 14.6
+    },
+    {
+      "url": "/no-deposit/",
+      "clicks": 1819,
+      "impressions": 130803,
+      "ctr": 1.4,
+      "position": 18.7
+    },
+    {
+      "url": "/news/robbie-keane-preston-north-end-manager-job/",
+      "clicks": 1594,
+      "impressions": 10883,
+      "ctr": 14.6,
+      "position": 4.4
+    },
+    {
+      "url": "/news/next-hibernian-manager-odds-steve-evans-odds-on-favourite-to-replace-david-gray/",
+      "clicks": 1386,
+      "impressions": 14684,
+      "ctr": 9.4,
+      "position": 4.5
+    },
+    {
+      "url": "/news/next-peterborough-united-manager-five-potential-candidates-to-replace-luke-williams/",
+      "clicks": 996,
+      "impressions": 7601,
+      "ctr": 13.1,
+      "position": 4.4
+    },
+    {
+      "url": "/news/next-celtic-manager-five-contenders-if-pressure-costs-martin-oneill-his-job/",
+      "clicks": 799,
+      "impressions": 6842,
+      "ctr": 11.7,
+      "position": 3.9
+    },
+    {
+      "url": "/news/next-celtic-manager-odds-neil-lennon-favourite-for-third-spell-at-celtic-park/",
+      "clicks": 705,
+      "impressions": 9377,
+      "ctr": 7.5,
+      "position": 3.8
+    },
+    {
+      "url": "/news/next-bradford-city-manager-five-potential-candidates-to-replace-graham-alexander/",
+      "clicks": 680,
+      "impressions": 14866,
+      "ctr": 4.6,
+      "position": 6.1
+    },
+    {
+      "url": "/news/graham-alexander-preston-north-end-manager-talks/",
+      "clicks": 630,
+      "impressions": 7376,
+      "ctr": 8.5,
+      "position": 3.9
+    },
+    {
+      "url": "/tips/horse-racing/charlie-mccann-tips/",
+      "clicks": 593,
+      "impressions": 843,
+      "ctr": 70.3,
+      "position": 1.7
+    },
+    {
+      "url": "/news/next-wycombe-wanderers-manager-five-potential-candidates-to-replace-michael-duff/",
+      "clicks": 482,
+      "impressions": 2937,
+      "ctr": 16.4,
+      "position": 4.3
+    },
+    {
+      "url": "/casino/",
+      "clicks": 430,
+      "impressions": 152489,
+      "ctr": 0.3,
+      "position": 15.3
+    },
+    {
+      "url": "/no-deposit/knight-slots-casino/",
+      "clicks": 341,
+      "impressions": 5917,
+      "ctr": 5.8,
+      "position": 5.0
+    }
+  ]
+}
